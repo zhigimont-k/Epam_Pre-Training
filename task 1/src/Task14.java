@@ -2,7 +2,7 @@
  * Created by karina on 27-01-2018.
  */
 public class Task14 {
-    public static void main(String[] args) {
+    public static void run() {
         int N = 4689;
         System.out.println(check(N));
     }

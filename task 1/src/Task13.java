@@ -2,7 +2,7 @@
  * Created by karina on 27-01-2018.
  */
 public class Task13 {
-    public static void main(String[] args) {
+    public static void run() {
         int a = 5;
         int b = 1;
         System.out.println("a = " + a + ", b = " + b);
