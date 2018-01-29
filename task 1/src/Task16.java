@@ -29,5 +29,4 @@ public class Task16 {
         double mult = digit1 * digit2 * digit3 * digit4 * digit5 * digit6;
         return Math.pow(mult, 1.0 / 6);
     }
-
 }

@@ -15,8 +15,6 @@ public class Task14 {
         boolean bool1 = (digit4 > digit3);
         boolean bool2 = (digit3 > digit2);
         boolean bool3 = (digit2 > digit1);
-        boolean monotone = (bool1 == bool2) && (bool2 == bool3);
-        boolean notEqual = (digit1 != digit2) && (digit2 != digit3) && (digit3 != digit4);
-        return monotone && notEqual;
+        return bool1 && bool2 && bool3;
     }
 }
