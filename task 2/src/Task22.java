@@ -9,13 +9,13 @@ public class Task22 {
         char input1 = 's';
         System.out.println("Letter " + input1 + " is a " + getLetterType1(input1));
         char input2 = 'w';
-        System.out.println("Letter " + input2 + " is a " + getLetterType1(input2));
+        System.out.println("Letter " + input2 + " is a " + getLetterType2(input2));
         char input3 = 'a';
-        System.out.println("Letter " + input3 + " is a " + getLetterType1(input3));
+        System.out.println("Letter " + input3 + " is a " + getLetterType3(input3));
         char input4 = 'd';
-        System.out.println("Letter " + input4 + " is a " + getLetterType1(input4));
+        System.out.println("Letter " + input4 + " is a " + getLetterType4(input4));
         char input5 = 'f';
-        System.out.println("Letter " + input5 + " is a " + getLetterType1(input5));
+        System.out.println("Letter " + input5 + " is a " + getLetterType5(input5));
     }
 
     public static String getLetterType1(char c) {
