@@ -6,35 +6,38 @@ import java.util.Random;
 public class Task23 {
     public static void run() {
         System.out.println("----------Task 2.3:");
-        Random rand = new Random();
-        int mood = rand.nextInt(11) + 1;
-        System.out.println(getMood(mood));
+        System.out.println(getMood());
     }
 
-    public static String getMood(int n) {
-        switch (n) {
-            case 1:
+    public static int getRandomNumber(int bound) {
+        Random random = new Random();
+        return random.nextInt(bound);
+    }
+
+    public static String getMood() {
+        switch (getRandomNumber(10)) {
+            case 0:
                 return ":)";
-            case 2:
+            case 1:
                 return ":D";
-            case 3:
+            case 2:
                 return ">:D";
-            case 4:
+            case 3:
                 return "(ノಠ益ಠ)ノ彡┻━┻";
-            case 5:
+            case 4:
                 return ":O";
-            case 6:
+            case 5:
                 return ":p";
-            case 7:
+            case 6:
                 return ":3";
-            case 8:
+            case 7:
                 return "<:D";
-            case 9:
+            case 8:
                 return "В)";
-            case 10:
+            case 9:
                 return ";D";
             default:
-                return "";
+                return "Error, could't detect mood";
         }
     }
 }
