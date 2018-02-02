@@ -9,7 +9,11 @@ public class Task12 {
     }
 
     public static double getRingArea(double r1, double r2) {
-        return Math.PI * (Math.pow(r1, 2) - Math.pow(r2, 2));
+        return getCircleArea(r1) - getCircleArea(r2);
+    }
+
+    public static double getCircleArea(double r) {
+        return Math.PI * Math.pow(r, 2);
     }
 
 }

@@ -12,9 +12,9 @@ public class Task14 {
         int digit2 = number / 100 % 10;
         int digit3 = number / 10 % 10;
         int digit4 = number % 10;
-        boolean bool1 = (digit4 > digit3);
-        boolean bool2 = (digit3 > digit2);
-        boolean bool3 = (digit2 > digit1);
+        boolean bool1 = digit4 > digit3;
+        boolean bool2 = digit3 > digit2;
+        boolean bool3 = digit2 > digit1;
         return bool1 && bool2 && bool3;
     }
 }
