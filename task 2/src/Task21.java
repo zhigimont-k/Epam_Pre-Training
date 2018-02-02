@@ -20,10 +20,10 @@ public class Task21 {
         if (age < CHILDHOOD_YEARS) {
             return (age + 1) * HEADS_PER_YEAR_CHILDHOOD;
         } else if (age >= CHILDHOOD_YEARS && age < MIDDLE_YEARS) {
-            return ((age + 1) % 100) * HEADS_PER_YEAR_PRE_MIDDLE_YEARS +
+            return ((age + 1) - MIDDLE_YEARS) * HEADS_PER_YEAR_PRE_MIDDLE_YEARS +
                     CHILDHOOD_YEARS * HEADS_PER_YEAR_CHILDHOOD;
         } else {
-            return ((age + 1) % 100) * HEADS_PER_YEAR_MIDDLE_YEARS + (MIDDLE_YEARS - CHILDHOOD_YEARS) *
+            return ((age + 1) - MIDDLE_YEARS) * HEADS_PER_YEAR_MIDDLE_YEARS + (MIDDLE_YEARS - CHILDHOOD_YEARS) *
                     HEADS_PER_YEAR_PRE_MIDDLE_YEARS + CHILDHOOD_YEARS * HEADS_PER_YEAR_CHILDHOOD;
         }
     }
