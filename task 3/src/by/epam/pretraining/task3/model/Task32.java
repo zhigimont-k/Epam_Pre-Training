@@ -56,8 +56,8 @@ public class Task32 {
 
     public static int getLCM(int a, int b) {
         int max = a * b;
-        for (int index = 2; index <= max; index++){
-            if (index % a == 0 && index % b == 0){
+        for (int index = 2; index <= max; index++) {
+            if (index % a == 0 && index % b == 0) {
                 return index;
             }
         }
@@ -65,7 +65,7 @@ public class Task32 {
     }
 
     public static int getGCD(int a, int b) {
-        while (b != 0){
+        while (b != 0) {
             int temp = a % b;
             a = b;
             b = temp;
@@ -75,18 +75,19 @@ public class Task32 {
 
     public static int getDifferentDigitsNumber(int number) {
         int result = 0;
-        while (number > 0){
+        while (number > 0) {
             boolean repeats = false;
             int lastDigit = number % 10;
             number /= 10;
             int temp = number;
-            while (temp > 0){
-                if (lastDigit == temp % 10){
+            while (temp > 0) {
+                if (lastDigit == temp % 10) {
                     repeats = true;
+                    break;
                 }
                 temp /= 10;
             }
-            if (!repeats){
+            if (!repeats) {
                 result++;
             }
         }

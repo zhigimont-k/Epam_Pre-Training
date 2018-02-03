@@ -31,15 +31,15 @@ public class Controller {
         View.printMessage(c + " is palindrome: " + Task32.isPalindrome(c));
         View.printMessage(d + " is a prime number: " + Task32.isPrimeNumber(d));
         View.printMessage(b + "'s prime dividers are: " + Task32.getNumberPrimeDivisors(b));
-        View.printMessage("LCM of "+a+" and "+b+" is "+Task32.getLCM(a, b));
-        View.printMessage("GCD of "+a+" and "+b+" is "+Task32.getGCD(a, b));
-        View.printMessage(c+": "+Task32.getDifferentDigitsNumber(c)+" different digit(s)");
+        View.printMessage("LCM of " + a + " and " + b + " is " + Task32.getLCM(a, b));
+        View.printMessage("GCD of " + a + " and " + b + " is " + Task32.getGCD(a, b));
+        View.printMessage(c + ": " + Task32.getDifferentDigitsNumber(c) + " different digit(s)");
     }
 
     public static void printTask33() {
         int n = 28;
         View.printTaskTitle(3);
-        View.printMessage(n+" is perfect: "+Task33.isPerfectNumber(n));
+        View.printMessage(n + " is perfect: " + Task33.isPerfectNumber(n));
     }
 
 
