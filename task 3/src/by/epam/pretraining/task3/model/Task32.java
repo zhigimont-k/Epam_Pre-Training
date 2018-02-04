@@ -21,11 +21,20 @@ public class Task32 {
             if (number % 10 != getFirstDigit(number)) {
                 return false;
             }
-            number %= 10;
             number /= 10;
+            number %= Math.pow(10, getNumberLength(number)-1);
         }
         return true;
 
+    }
+
+    public static int getNumberLength(int number){
+        int result = 0;
+        while (number > 0){
+            result++;
+            number /= 10;
+        }
+        return result;
     }
 
     public static int getFirstDigit(int number) {
