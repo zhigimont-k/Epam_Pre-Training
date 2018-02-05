@@ -1,9 +1,6 @@
 package by.epam.pretraining.task3.model;
 
-/**
- * Created by karina on 03-02-2018.
- */
-public class Task32 {
+public class MathWorker {
     public static int getBiggestDigit(int number) {
         number = Math.abs(number);
         int result = 0;
@@ -17,31 +14,17 @@ public class Task32 {
     }
 
     public static boolean isPalindrome(int number) {
-        while (number > 0) {
-            if (number % 10 != getFirstDigit(number)) {
-                return false;
-            }
-            number /= 10;
-            number %= Math.pow(10, getNumberLength(number)-1);
-        }
-        return true;
-
+        return number == getReversedNumber(number);
     }
 
-    public static int getNumberLength(int number){
+    private static int getReversedNumber(int number) {
         int result = 0;
-        while (number > 0){
-            result++;
+        while (number > 0) {
+            result *= 10;
+            result += number % 10;
             number /= 10;
         }
         return result;
-    }
-
-    public static int getFirstDigit(int number) {
-        while (number > 10) {
-            number /= 10;
-        }
-        return number;
     }
 
     public static boolean isPrimeNumber(int number) {
@@ -84,11 +67,14 @@ public class Task32 {
 
     public static int getDifferentDigitsNumber(int number) {
         int result = 0;
+        int lastDigit;
+        int temp;
+        boolean repeats;
         while (number > 0) {
-            boolean repeats = false;
-            int lastDigit = number % 10;
+            repeats = false;
+            lastDigit = number % 10;
             number /= 10;
-            int temp = number;
+            temp = number;
             while (temp > 0) {
                 if (lastDigit == temp % 10) {
                     repeats = true;

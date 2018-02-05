@@ -40,9 +40,8 @@ public class Task22 {
         c = Character.toLowerCase(c);
         if (VOWELS.indexOf(c) != -1) {
             return "vowel";
-        } else {
-            return "consonant";
         }
+        return "consonant";
     }
 
     public static String getLetterType5(char c) {
