@@ -1,13 +1,6 @@
-/**
- * Created by karina on 30-01-2018.
- */
+package model;
+
 public class Task25 {
-    public static void run() {
-        System.out.println("----------Task 2.5:");
-        int number = 742;
-        System.out.println("Number: " + number);
-        System.out.println("As string: " + getNumberAsString(number));
-    }
 
     public static String getNumberAsString(int n) {
         String result = "";
@@ -19,83 +12,85 @@ public class Task25 {
         return result;
     }
 
-    public static String getHundredsString(int n) {
+    private static String getHundredsString(int n) {
         int hundreds = n / 100;
         return getDigitString(hundreds) + " hundred ";
     }
 
-    public static String getDecsString(int n) {
+    private static String getDecsString(int n) {
         int decsDigit = n % 100 / 10;
+        String result = "";
         if (decsDigit > 5) {
-            return getDigitString(decsDigit) + "ty ";
+            result = getDigitString(decsDigit) + "ty ";
         }
         if (decsDigit == 5) {
-            return "fifty ";
+            result = "fifty ";
         }
         if (decsDigit == 4) {
-            return "forty ";
+            result = "forty ";
         }
         if (decsDigit == 3) {
-            return "thirty ";
+            result = "thirty ";
         }
         if (decsDigit == 2) {
-            return "twenty ";
+            result = "twenty ";
         }
         if (decsDigit == 1) {
             int lastDigit = n % 10;
             if (lastDigit > 5 || lastDigit == 4) {
-                return getDigitString(lastDigit) + "teen";
+                result = getDigitString(lastDigit) + "teen";
             }
             if (lastDigit == 5) {
-                return "fifteen";
+                result = "fifteen";
             }
             if (lastDigit == 3) {
-                return "thirteen";
+                result = "thirteen";
             }
             if (lastDigit == 2) {
-                return "twelve";
+                result = "twelve";
             }
             if (lastDigit == 1) {
-                return "eleven";
+                result = "eleven";
             }
-            return "ten";
+            result = "ten";
         }
-        return "";
+        return result;
     }
 
-    public static String getUnitsString(int n) {
+    private static String getUnitsString(int n) {
         int lastDigit = n % 10;
         return getDigitString(lastDigit);
     }
 
-    public static String getDigitString(int digit) {
+    private static String getDigitString(int digit) {
+        String result = "";
         if (digit == 1) {
-            return "one";
+            result = "one";
         }
         if (digit == 2) {
-            return "two";
+            result = "two";
         }
         if (digit == 3) {
-            return "three";
+            result = "three";
         }
         if (digit == 4) {
-            return "four";
+            result = "four";
         }
         if (digit == 5) {
-            return "five";
+            result = "five";
         }
         if (digit == 6) {
-            return "six";
+            result = "six";
         }
         if (digit == 7) {
-            return "seven";
+            result = "seven";
         }
         if (digit == 8) {
-            return "eight";
+            result = "eight";
         }
         if (digit == 9) {
-            return "nine";
+            result = "nine";
         }
-        return "";
+        return result;
     }
 }
