@@ -8,7 +8,8 @@ public class Task25 {
             result += getHundredsString(n);
         }
         result += getDecsString(n);
-        result += getUnitsString(n);
+        if (n % 100 < 10 || n % 100 > 19){
+            result += getUnitsString(n);}
         return result;
     }
 
@@ -20,8 +21,11 @@ public class Task25 {
     private static String getDecsString(int n) {
         int decsDigit = n % 100 / 10;
         String result = "";
-        if (decsDigit > 5) {
+        if (decsDigit > 5 && decsDigit != 8) {
             result = getDigitString(decsDigit) + "ty ";
+        }
+        if (decsDigit == 8) {
+            result = "eighty ";
         }
         if (decsDigit == 5) {
             result = "fifty ";
@@ -37,22 +41,21 @@ public class Task25 {
         }
         if (decsDigit == 1) {
             int lastDigit = n % 10;
-            if (lastDigit > 5 || lastDigit == 4) {
+            if ((lastDigit > 5 && lastDigit != 8) || lastDigit == 4 ) {
                 result = getDigitString(lastDigit) + "teen";
-            }
-            if (lastDigit == 5) {
+            } else if (lastDigit == 5) {
                 result = "fifteen";
-            }
-            if (lastDigit == 3) {
+            } else if (lastDigit == 8){
+                result += "eighteen";
+            } else if (lastDigit == 3) {
                 result = "thirteen";
-            }
-            if (lastDigit == 2) {
+            } else if (lastDigit == 2) {
                 result = "twelve";
-            }
-            if (lastDigit == 1) {
+            } else if (lastDigit == 1) {
                 result = "eleven";
+            } else {
+                result = "ten";
             }
-            result = "ten";
         }
         return result;
     }

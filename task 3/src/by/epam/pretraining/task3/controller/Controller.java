@@ -35,9 +35,13 @@ public class Controller {
     }
 
     public static void printTask33() {
-        int n = 28;
+        int a = 6;
+        int b = 7;
+        int c = 28;
         View.printTaskTitle(3);
-        View.printMessage(n + " is perfect: " + PerfectNumber.isPerfectNumber(n));
+        View.printMessage(a + " is perfect: " + PerfectNumber.isPerfectNumber(a));
+        View.printMessage(b + " is perfect: " + PerfectNumber.isPerfectNumber(b));
+        View.printMessage(c + " is perfect: " + PerfectNumber.isPerfectNumber(c));
     }
 
 

@@ -51,7 +51,7 @@ public class Controller {
 
     public static void runTask25(){
         View.printTaskTitle(5);
-        int number = 742;
+        int number = 111;
         View.print("Number: " + number);
         View.print("As string: " + Task25.getNumberAsString(number));
     }
