@@ -1,13 +1,13 @@
-package model;
+package by.epam.pretraining.task2.model;
 
 public class Task21 {
-    public static int CHILDHOOD_YEARS = 200;
-    public static int MIDDLE_YEARS = 300;
-    public static int HEADS_PER_YEAR_CHILDHOOD = 3;
-    public static int HEADS_PER_YEAR_PRE_MIDDLE_YEARS = 2;
-    public static int HEADS_PER_YEAR_MIDDLE_YEARS = 1;
-    public static int EYES_PER_HEAD = 2;
-    public static int HEADS_AT_BIRTH = 3;
+    public static final int CHILDHOOD_YEARS = 200;
+    public static final int MIDDLE_YEARS = 300;
+    public static final int HEADS_PER_YEAR_CHILDHOOD = 3;
+    public static final int HEADS_PER_YEAR_PRE_MIDDLE_YEARS = 2;
+    public static final int HEADS_PER_YEAR_MIDDLE_YEARS = 1;
+    public static final int EYES_PER_HEAD = 2;
+    public static final int HEADS_AT_BIRTH = 3;
 
     public static int getHeadsNumber(int age) {
         int heads;

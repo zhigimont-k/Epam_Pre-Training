@@ -1,7 +1,8 @@
-package controller;
+package by.epam.pretraining.task2.controller;
 
+import by.epam.pretraining.task2.model.*;
 import model.*;
-import view.View;
+import by.epam.pretraining.task2.view.View;
 
 public class Controller {
     public static void main(String[] args) {

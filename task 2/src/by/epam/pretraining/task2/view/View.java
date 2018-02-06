@@ -1,4 +1,4 @@
-package view;
+package by.epam.pretraining.task2.view;
 
 /**
  * Created by karina on 05-02-2018.

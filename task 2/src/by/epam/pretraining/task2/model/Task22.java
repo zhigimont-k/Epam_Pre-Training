@@ -1,4 +1,4 @@
-package model;
+package by.epam.pretraining.task2.model;
 
 import java.util.regex.Pattern;
 

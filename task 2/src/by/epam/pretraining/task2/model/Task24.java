@@ -1,4 +1,4 @@
-package model;
+package by.epam.pretraining.task2.model;
 
 public class Task24 {
     //вариант 1
