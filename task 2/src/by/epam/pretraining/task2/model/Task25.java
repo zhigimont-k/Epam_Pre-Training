@@ -4,6 +4,9 @@ public class Task25 {
 
     public static String getNumberAsString(int n) {
         String result = "";
+        if (!isValid(n)){
+            result = "Error";
+        }
         if (n >= 100) {
             result += getHundredsString(n);
         }
@@ -11,6 +14,10 @@ public class Task25 {
         if (n % 100 < 10 || n % 100 > 19){
             result += getUnitsString(n);}
         return result;
+    }
+
+    private static boolean isValid(int number){
+        return (number > 0 && number < 1000);
     }
 
     private static String getHundredsString(int n) {
