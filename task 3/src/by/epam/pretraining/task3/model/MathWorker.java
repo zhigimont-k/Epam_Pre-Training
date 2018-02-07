@@ -18,6 +18,7 @@ public class MathWorker {
     }
 
     private static int getReversedNumber(int number) {
+        number = Math.abs(number);
         int result = 0;
         while (number > 0) {
             result *= 10;
@@ -28,6 +29,7 @@ public class MathWorker {
     }
 
     public static boolean isPrimeNumber(int number) {
+        number = Math.abs(number);
         for (int index = 2; index < number; index++) {
             if (number % index == 0) {
                 return false;
@@ -37,6 +39,7 @@ public class MathWorker {
     }
 
     public static String getNumberPrimeDivisors(int number) {
+        number = Math.abs(number);
         String result = "";
         for (int index = 2; index <= number; index++) {
             if (number % index == 0 && isPrimeNumber(index)) {
@@ -47,6 +50,8 @@ public class MathWorker {
     }
 
     public static int getLCM(int a, int b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
         int max = a * b;
         for (int index = 2; index <= max; index++) {
             if (index % a == 0 && index % b == 0) {
@@ -57,6 +62,8 @@ public class MathWorker {
     }
 
     public static int getGCD(int a, int b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
         while (b != 0) {
             int temp = a % b;
             a = b;
@@ -66,6 +73,7 @@ public class MathWorker {
     }
 
     public static int getDifferentDigitsNumber(int number) {
+        number = Math.abs(number);
         int result = 0;
         int lastDigit;
         int temp;

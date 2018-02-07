@@ -3,6 +3,7 @@ package by.epam.pretraining.task3.model;
 public class PerfectNumber {
 
     public static boolean isPerfectNumber(int number) {
+        number = Math.abs(number);
         return number == getDivisorsSum(number);
     }
 
