@@ -5,7 +5,7 @@ package by.epam.preTraining.task4.model;
  */
 public class Fibonacci {
     private static int fiboRecursive(int number) {
-        if (number > 2) {
+        if (number > 3) {
             return fiboRecursive(number - 1) + fiboRecursive(number - 2);
         } else {
             return 1;
@@ -13,8 +13,8 @@ public class Fibonacci {
     }
 
     private static int fibo(int number) {
-        int result = 0;
-        int fibo1 = 1;
+        int result = 1;
+        int fibo1 = 0;
         int fibo2 = 1;
         for (int i = 2; i < number; i++) {
             result = fibo2 + fibo1;
@@ -39,6 +39,6 @@ public class Fibonacci {
     }
 
     private static boolean isValid(int n) {
-        return n > 2;
+        return n > 1;
     }
 }

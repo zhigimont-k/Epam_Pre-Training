@@ -44,7 +44,7 @@ public class Controller {
 
     private static void runTask4() {
         View.printTaskTitle(4);
-        int n = 9;
+        int n = 7;
         View.printInput(n);
         View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
         View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
