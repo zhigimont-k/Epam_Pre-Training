@@ -2,17 +2,18 @@ package by.epam.pretraining.task2.model;
 
 public class Task25 {
 
-    public static String getNumberAsString(int n) {
-        String result = "";
+    public static StringBuilder getNumberAsString(int n) {
+        StringBuilder result = new StringBuilder();
         if (!isValid(n)){
-            result = "Error";
+            result.append("Error");
         }
         if (n >= 100) {
-            result += getHundredsString(n);
+            result.append(getHundredsString(n));
         }
-        result += getDecsString(n);
+        result.append(getDecsString(n));
         if (n % 100 < 10 || n % 100 > 19){
-            result += getUnitsString(n);}
+            result.append(getUnitsString(n));
+        }
         return result;
     }
 
@@ -20,86 +21,86 @@ public class Task25 {
         return (number > 0 && number < 1000);
     }
 
-    private static String getHundredsString(int n) {
+    private static StringBuilder getHundredsString(int n) {
         int hundreds = n / 100;
-        return getDigitString(hundreds) + " hundred ";
+        return getDigitString(hundreds).append(" hundred ");
     }
 
-    private static String getDecsString(int n) {
+    private static StringBuilder getDecsString(int n) {
         int decsDigit = n % 100 / 10;
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if (decsDigit > 5 && decsDigit != 8) {
-            result = getDigitString(decsDigit) + "ty ";
+            result.append(getDigitString(decsDigit) + "ty ");
         }
         if (decsDigit == 8) {
-            result = "eighty ";
+            result.append("eighty ");
         }
         if (decsDigit == 5) {
-            result = "fifty ";
+            result.append("fifty ");
         }
         if (decsDigit == 4) {
-            result = "forty ";
+            result.append("forty ");
         }
         if (decsDigit == 3) {
-            result = "thirty ";
+            result.append("thirty ");
         }
         if (decsDigit == 2) {
-            result = "twenty ";
+            result.append("twenty ");
         }
         if (decsDigit == 1) {
             int lastDigit = n % 10;
             if ((lastDigit > 5 && lastDigit != 8) || lastDigit == 4 ) {
-                result = getDigitString(lastDigit) + "teen";
+                result.append(getDigitString(lastDigit) + "teen");
             } else if (lastDigit == 5) {
-                result = "fifteen";
+                result.append("fifteen");
             } else if (lastDigit == 8){
-                result += "eighteen";
+                result.append("eighteen");
             } else if (lastDigit == 3) {
-                result = "thirteen";
+                result.append("thirteen");
             } else if (lastDigit == 2) {
-                result = "twelve";
+                result.append("twelve");
             } else if (lastDigit == 1) {
-                result = "eleven";
+                result.append("eleven");
             } else {
-                result = "ten";
+                result.append("ten");
             }
         }
         return result;
     }
 
-    private static String getUnitsString(int n) {
+    private static StringBuilder getUnitsString(int n) {
         int lastDigit = n % 10;
         return getDigitString(lastDigit);
     }
 
-    private static String getDigitString(int digit) {
-        String result = "";
+    private static StringBuilder getDigitString(int digit) {
+        StringBuilder result = new StringBuilder();
         if (digit == 1) {
-            result = "one";
+            result.append("one");
         }
         if (digit == 2) {
-            result = "two";
+            result.append("two");
         }
         if (digit == 3) {
-            result = "three";
+            result.append("three");
         }
         if (digit == 4) {
-            result = "four";
+            result.append("four");
         }
         if (digit == 5) {
-            result = "five";
+            result.append("five");
         }
         if (digit == 6) {
-            result = "six";
+            result.append("six");
         }
         if (digit == 7) {
-            result = "seven";
+            result.append("seven");
         }
         if (digit == 8) {
-            result = "eight";
+            result.append("eight");
         }
         if (digit == 9) {
-            result = "nine";
+            result.append("nine");
         }
         return result;
     }

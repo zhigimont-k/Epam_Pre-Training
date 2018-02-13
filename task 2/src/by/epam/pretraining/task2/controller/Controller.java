@@ -1,7 +1,6 @@
 package by.epam.pretraining.task2.controller;
 
 import by.epam.pretraining.task2.model.*;
-import model.*;
 import by.epam.pretraining.task2.view.View;
 
 public class Controller {
@@ -46,8 +45,7 @@ public class Controller {
         int day = 28;
         int month = 2;
         int year = 1900;
-        View.print("1. Tomorrow's date is " + Task24.printTomorrowDate1(day, month, year));
-        View.print("2. Tomorrow's date is " + Task24.printTomorrowDate2(day, month, year));
+        View.print("Tomorrow's date is " + Task24.printTomorrowDate1(day, month, year));
     }
 
     public static void runTask25(){
