@@ -4,16 +4,12 @@ public class PerfectNumber {
 
     public static boolean isPerfectNumber(int number) {
         number = Math.abs(number);
-        return number == getDivisorsSum(number);
-    }
-
-    private static int getDivisorsSum(int number) {
-        int result = 1;
-        for (int index = 2; index < number; index++) {
-            if (number % index == 0) {
-                result += index;
+        int sum = 1;
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                sum += i;
             }
         }
-        return result;
+        return number == sum;
     }
 }
