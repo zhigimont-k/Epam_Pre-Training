@@ -5,7 +5,6 @@ package by.epam.preTraining.task4.model;
  */
 public class HanoiTower {
     private static String resultRecursive = "";
-    private static String result = "";
 
     public static String calculateHanoiRecursive(int rings, String from, String to, String middle) {
         if (rings == 1) {
@@ -19,6 +18,7 @@ public class HanoiTower {
     }
 
     public static String calculateHanoi(int rings, String from, String to, String middle) {
+        String result = "";
         if (rings % 2 == 0) {
             for (int i = 1; i < (1 << rings); i++) {
                 result += "\n" + getTowerName((i & i - 1) % 3, from, to, middle) + "->" +
