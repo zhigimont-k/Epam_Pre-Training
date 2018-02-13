@@ -38,12 +38,12 @@ public class MathWorker {
         return true;
     }
 
-    public static String getNumberPrimeDivisors(int number) {
+    public static StringBuilder getNumberPrimeDivisors(int number) {
         number = Math.abs(number);
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int index = 2; index <= number; index++) {
             if (number % index == 0 && isPrimeNumber(index)) {
-                result += index + " ";
+                result.append(index + " ");
             }
         }
         return result;
