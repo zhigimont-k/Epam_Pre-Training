@@ -4,30 +4,30 @@ package by.epam.preTraining.task4.model;
  * Created by karina on 13-02-2018.
  */
 public class HanoiTower {
-    private static String resultRecursive = "";
+    private static StringBuilder resultRecursive = new StringBuilder();
 
-    public static String calculateHanoiRecursive(int rings, String from, String to, String middle) {
+    public static StringBuilder calculateHanoiRecursive(int rings, String from, String to, String middle) {
         if (rings == 1) {
-            resultRecursive += "\n" + from + "->" + to;
+            resultRecursive.append("\n" + from + "->" + to);
         } else {
             calculateHanoiRecursive(rings - 1, from, middle, to);
-            resultRecursive += "\n" + from + "->" + to;
+            resultRecursive.append("\n" + from + "->" + to);
             calculateHanoiRecursive(rings - 1, middle, to, from);
         }
         return resultRecursive;
     }
 
-    public static String calculateHanoi(int rings, String from, String to, String middle) {
-        String result = "";
+    public static StringBuilder calculateHanoi(int rings, String from, String to, String middle) {
+        StringBuilder result = new StringBuilder();
         if (rings % 2 == 0) {
             for (int i = 1; i < (1 << rings); i++) {
-                result += "\n" + getTowerName((i & i - 1) % 3, from, to, middle) + "->" +
-                        getTowerName(((i | i - 1) + 1) % 3, from, to, middle);
+                result.append("\n" + getTowerName((i & i - 1) % 3, from, to, middle) + "->" +
+                        getTowerName(((i | i - 1) + 1) % 3, from, to, middle));
             }
         } else {
             for (int i = 1; i < (1 << rings); i++) {
-                result += "\n" + getTowerName((i & i - 1) % 3, from, middle, to) + "->" +
-                        getTowerName(((i | i - 1) + 1) % 3, from, middle, to);
+                result.append("\n" + getTowerName((i & i - 1) % 3, from, middle, to) + "->" +
+                        getTowerName(((i | i - 1) + 1) % 3, from, middle, to));
             }
 
         }
