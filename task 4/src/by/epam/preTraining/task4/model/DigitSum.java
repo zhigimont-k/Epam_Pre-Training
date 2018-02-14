@@ -5,15 +5,15 @@ package by.epam.preTraining.task4.model;
  */
 public class DigitSum {
 
-    public static int getDigitSumRecursive(int number) {
-        if (number >= 10) {
-            return getDigitSumRecursive(number % 10) + getDigitSumRecursive(number / 10);
+    public static int calculateDigitSumRecursive(int number) {
+        if (number > 0) {
+            return calculateDigitSumRecursive(number / 10) + (number % 10);
         } else {
-            return number % 10;
+            return 0;
         }
     }
 
-    public static int getDigitSum(int number) {
+    public static int calculateDigitSum(int number) {
         int result = 0;
         while (number > 0) {
             result += number % 10;

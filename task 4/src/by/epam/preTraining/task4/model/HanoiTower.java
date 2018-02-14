@@ -7,9 +7,7 @@ public class HanoiTower {
     private static StringBuilder resultRecursive = new StringBuilder();
 
     public static StringBuilder calculateHanoiRecursive(int rings, String from, String to, String middle) {
-        if (rings == 1) {
-            resultRecursive.append("\n" + from + "->" + to);
-        } else {
+        if (rings > 0){
             calculateHanoiRecursive(rings - 1, from, middle, to);
             resultRecursive.append("\n" + from + "->" + to);
             calculateHanoiRecursive(rings - 1, middle, to, from);

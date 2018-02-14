@@ -20,8 +20,8 @@ public class Controller {
         View.print("-------Task 4.1");
         int n = 8911;
         View.print("Input: "+n);
-        View.print("Recursive digit sum: " + DigitSum.getDigitSumRecursive(n));
-        View.print("Non-recursive digit sum: " + DigitSum.getDigitSum(n));
+        View.print("Recursive digit sum: " + DigitSum.calculateDigitSumRecursive(n));
+        View.print("Non-recursive digit sum: " + DigitSum.calculateDigitSum(n));
     }
 
     private static void runTask2() {
@@ -51,28 +51,28 @@ public class Controller {
         View.print("-------Task 4.4");
         int n = -9;
         View.print("Input: "+n);
-        View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
-        View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
+        View.print("Recursive fibonacci: " + Fibonacci.calculateFibonacciRecursive(n));
+        View.print("Non-recursive fibonacci: " + Fibonacci.calculateFibonacci(n));
         n = 0;
         View.print("Input: "+n);
-        View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
-        View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
+        View.print("Recursive fibonacci: " + Fibonacci.calculateFibonacciRecursive(n));
+        View.print("Non-recursive fibonacci: " + Fibonacci.calculateFibonacci(n));
         n = 1;
         View.print("Input: "+n);
-        View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
-        View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
+        View.print("Recursive fibonacci: " + Fibonacci.calculateFibonacciRecursive(n));
+        View.print("Non-recursive fibonacci: " + Fibonacci.calculateFibonacci(n));
         n = 2;
         View.print("Input: "+n);
-        View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
-        View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
+        View.print("Recursive fibonacci: " + Fibonacci.calculateFibonacciRecursive(n));
+        View.print("Non-recursive fibonacci: " + Fibonacci.calculateFibonacci(n));
         n = 3;
         View.print("Input: "+n);
-        View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
-        View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
+        View.print("Recursive fibonacci: " + Fibonacci.calculateFibonacciRecursive(n));
+        View.print("Non-recursive fibonacci: " + Fibonacci.calculateFibonacci(n));
         n = 4;
         View.print("Input: "+n);
-        View.print("Recursive fibonacci: " + Fibonacci.getFibonacciRecursive(n));
-        View.print("Non-recursive fibonacci: " + Fibonacci.getFibonacci(n));
+        View.print("Recursive fibonacci: " + Fibonacci.calculateFibonacciRecursive(n));
+        View.print("Non-recursive fibonacci: " + Fibonacci.calculateFibonacci(n));
     }
 
     private static void runTask5() {

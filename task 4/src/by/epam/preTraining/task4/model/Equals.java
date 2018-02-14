@@ -5,10 +5,10 @@ package by.epam.preTraining.task4.model;
  */
 public class Equals {
     public static boolean equalsRecursive(int N, int S) {
-        return S == DigitSum.getDigitSumRecursive(N);
+        return S == DigitSum.calculateDigitSumRecursive(N);
     }
 
     public static boolean equals(int N, int S) {
-        return S == DigitSum.getDigitSum(N);
+        return S == DigitSum.calculateDigitSum(N);
     }
 }
