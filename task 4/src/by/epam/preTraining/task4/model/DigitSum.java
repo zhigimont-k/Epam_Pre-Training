@@ -1,8 +1,5 @@
 package by.epam.preTraining.task4.model;
 
-/**
- * Created by karina on 13-02-2018.
- */
 public class DigitSum {
 
     public static int calculateDigitSumRecursive(int number) {

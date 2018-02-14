@@ -3,9 +3,6 @@ package by.epam.preTraining.task4.controller;
 import by.epam.preTraining.task4.model.*;
 import by.epam.preTraining.task4.view.View;
 
-/**
- * Created by karina on 13-02-2018.
- */
 public class Controller {
 
     public static void main(String[] args) {
@@ -38,13 +35,13 @@ public class Controller {
         int N = 2256;
         int S = 15;
         View.print("Input: "+N+", "+S);
-        View.print("Recursive equals: " + Equals.equalsRecursive(N, S));
-        View.print("Non-recursive equals: " + Equals.equals(N, S));
+        View.print("Recursive equals: " + DigitSumEquation.equalsRecursive(N, S));
+        View.print("Non-recursive equals: " + DigitSumEquation.equals(N, S));
         N = 10000;
         S = 6;
         View.print("Input: "+N+", "+S);
-        View.print("Recursive equals: " + Equals.equalsRecursive(N, S));
-        View.print("Non-recursive equals: " + Equals.equals(N, S));
+        View.print("Recursive equals: " + DigitSumEquation.equalsRecursive(N, S));
+        View.print("Non-recursive equals: " + DigitSumEquation.equals(N, S));
     }
 
     private static void runTask4() {

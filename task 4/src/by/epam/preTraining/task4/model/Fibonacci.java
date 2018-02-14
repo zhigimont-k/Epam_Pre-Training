@@ -5,15 +5,17 @@ package by.epam.preTraining.task4.model;
  */
 public class Fibonacci {
     public static int calculateFibonacciRecursive(int number) {
+        int result;
         if (number > 2){
-            return calculateFibonacciRecursive(number - 1) + calculateFibonacciRecursive(number - 2);
+            result = calculateFibonacciRecursive(number - 1) + calculateFibonacciRecursive(number - 2);
         } else if (number == 2){
-            return 1;
+            result = 1;
         } else if (number == 1){
-            return 0;
+            result = 0;
         } else {
-            return -1;
+            result = -1;
         }
+        return result;
     }
 
     public static int calculateFibonacci(int number) {
