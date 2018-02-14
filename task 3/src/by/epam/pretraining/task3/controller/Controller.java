@@ -40,9 +40,9 @@ public class Controller {
         int a = 6;
         int b = 7;
         int c = 28;
-        View.print(a + " is perfect: " + PerfectNumber.isPerfectNumber(a));
-        View.print(b + " is perfect: " + PerfectNumber.isPerfectNumber(b));
-        View.print(c + " is perfect: " + PerfectNumber.isPerfectNumber(c));
+        View.print(a + " is perfect: " + PerfectNumber.checkPerfect(a));
+        View.print(b + " is perfect: " + PerfectNumber.checkPerfect(b));
+        View.print(c + " is perfect: " + PerfectNumber.checkPerfect(c));
     }
 
 

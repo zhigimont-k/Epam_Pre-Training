@@ -2,7 +2,7 @@ package by.epam.pretraining.task3.model;
 
 public class PerfectNumber {
 
-    public static boolean isPerfectNumber(int number) {
+    public static boolean checkPerfect(int number) {
         number = Math.abs(number);
         int sum = 1;
         int bound = number / 2;
