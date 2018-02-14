@@ -25,20 +25,16 @@ public class Fibonacci {
     }
 
     public static int getFibonacciRecursive(int number) {
-        int result = (isValid(number)) ? fiboRecursive(number) : validate(number);
-        return result;
+        return (number > 1) ? fiboRecursive(number) : validate(number);
     }
 
     public static int getFibonacci(int number) {
-        int result = (isValid(number)) ? fibo(number) : validate(number);
-        return result;
+        return (number > 1) ? fibo(number) : validate(number);
     }
 
     private static int validate(int n) {
-        return (n <= 0) ? -1 : n - 1;
+        return (n <= 0) ? -1 : (n - 1);
+
     }
 
-    private static boolean isValid(int n) {
-        return n > 1;
-    }
 }

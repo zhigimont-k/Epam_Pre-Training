@@ -19,13 +19,14 @@ public class HanoiTower {
 
     public static StringBuilder calculateHanoi(int rings, String from, String to, String middle) {
         StringBuilder result = new StringBuilder();
+        int bound = 1 << rings;
         if (rings % 2 == 0) {
-            for (int i = 1; i < (1 << rings); i++) {
+            for (int i = 1; i < bound; i++) {
                 result.append("\n" + getTowerName((i & i - 1) % 3, from, to, middle) + "->" +
                         getTowerName(((i | i - 1) + 1) % 3, from, to, middle));
             }
         } else {
-            for (int i = 1; i < (1 << rings); i++) {
+            for (int i = 1; i < bound; i++) {
                 result.append("\n" + getTowerName((i & i - 1) % 3, from, middle, to) + "->" +
                         getTowerName(((i | i - 1) + 1) % 3, from, middle, to));
             }

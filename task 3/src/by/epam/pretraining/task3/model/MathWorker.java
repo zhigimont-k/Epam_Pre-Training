@@ -1,7 +1,7 @@
 package by.epam.pretraining.task3.model;
 
 public class MathWorker {
-    public static int getBiggestDigit(int number) {
+    public static int calculateBiggestDigit(int number) {
         number = Math.abs(number);
         int result = 0;
         while (number > 0) {
@@ -13,24 +13,23 @@ public class MathWorker {
         return result;
     }
 
-    public static boolean isPalindrome(int number) {
-        return number == getReversedNumber(number);
-    }
-
-    private static int getReversedNumber(int number) {
+    public static boolean checkPalindrome(int number) {
         number = Math.abs(number);
-        int result = 0;
-        while (number > 0) {
-            result *= 10;
-            result += number % 10;
-            number /= 10;
+        int reversed = 0;
+        int temp = number;
+        while (temp > 0) {
+            reversed *= 10;
+            reversed += temp % 10;
+            temp /= 10;
         }
-        return result;
+        return number == reversed;
     }
 
-    public static boolean isPrimeNumber(int number) {
+
+    public static boolean checkPrime(int number) {
         number = Math.abs(number);
-        for (int index = 2; index < number; index++) {
+        int bound = number / 2;
+        for (int index = 2; index <= bound; index++) {
             if (number % index == 0) {
                 return false;
             }
@@ -38,18 +37,19 @@ public class MathWorker {
         return true;
     }
 
-    public static StringBuilder getNumberPrimeDivisors(int number) {
+    public static StringBuilder calculatePrimeDivisors(int number) {
         number = Math.abs(number);
         StringBuilder result = new StringBuilder();
-        for (int index = 2; index <= number; index++) {
-            if (number % index == 0 && isPrimeNumber(index)) {
+        int bound = number / 2;
+        for (int index = 2; index <= bound; index++) {
+            if (number % index == 0 && checkPrime(index)) {
                 result.append(index + " ");
             }
         }
         return result;
     }
 
-    public static int getLCM(int a, int b) {
+    public static int calculateLCM(int a, int b) {
         a = Math.abs(a);
         b = Math.abs(b);
         int max = a * b;
@@ -61,7 +61,7 @@ public class MathWorker {
         return max;
     }
 
-    public static int getGCD(int a, int b) {
+    public static int calculateGCD(int a, int b) {
         a = Math.abs(a);
         b = Math.abs(b);
         while (b != 0) {
@@ -72,7 +72,7 @@ public class MathWorker {
         return a;
     }
 
-    public static int getDifferentDigitsNumber(int number) {
+    public static int calculateDifferentDigitsNumber(int number) {
         number = Math.abs(number);
         int result = 0;
         int lastDigit;

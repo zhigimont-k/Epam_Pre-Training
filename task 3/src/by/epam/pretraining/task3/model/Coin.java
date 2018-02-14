@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Coin {
 
-    public static int getHeads(int tries) {
+    public static int calculateHeads(int tries) {
         tries = Math.abs(tries);
         int headsCounter = 0;
         Random random = new Random();
