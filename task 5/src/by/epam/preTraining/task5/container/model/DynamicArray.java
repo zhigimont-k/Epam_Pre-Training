@@ -1,6 +1,5 @@
 package by.epam.preTraining.task5.container.model;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class DynamicArray<T> implements Iterable<T> {
@@ -13,7 +12,10 @@ public class DynamicArray<T> implements Iterable<T> {
     }
 
     public DynamicArray(T... ob) {
-        arr = ob.clone();
+        arr = (T[]) new Object[ob.length];
+        for (int i = 0; i < ob.length; i++){
+            arr[i] = ob[i];
+        }
         length = arr.length;
     }
 
@@ -88,7 +90,22 @@ public class DynamicArray<T> implements Iterable<T> {
 
     @Override
     public String toString() {
-        return Arrays.toString(arr);
+        if (arr == null){
+            return "null";
+        }
+        int last = arr.length - 1;
+        if (last == -1){
+            return "[]";
+        }
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+        for (int i = 0; ; i++){
+            s.append(arr[i]);
+            if (i == last){
+                return s.append("]").toString();
+            }
+            s.append(", ");
+        }
     }
 
     @Override

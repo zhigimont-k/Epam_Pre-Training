@@ -58,7 +58,7 @@ public abstract class Train {
 
     @Override
     public String toString() {
-        return "Train, length = " + calculateLength()+", width = "+calculateTotalWeight();
+        return "Train, length = " + calculateLength()+", weight = "+calculateTotalWeight();
     }
 
     @Override
