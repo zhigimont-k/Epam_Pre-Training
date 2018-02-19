@@ -90,42 +90,48 @@ public class DynamicArray<T> implements Iterable<T> {
 
     @Override
     public String toString() {
-        if (arr == null){
-            return "null";
-        }
-        int last = arr.length - 1;
-        if (last == -1){
-            return "[]";
-        }
         StringBuilder s = new StringBuilder();
-        s.append("[");
-        for (int i = 0; ; i++){
-            s.append(arr[i]);
-            if (i == last){
-                return s.append("]").toString();
+        if (arr == null){
+            s.append("null");
+        } else {
+            int last = arr.length - 1;
+            if (last == -1) {
+                s.append("[]");
+            } else {
+                s.append("[");
+                for (int i = 0; ; i++) {
+                    s.append(arr[i]);
+                    if (i == last) {
+                        s.append("]");
+                        break;
+                    }
+                    s.append(", ");
+                }
             }
-            s.append(", ");
         }
+        return s.toString();
     }
 
     @Override
     public boolean equals(Object obj) {
+        boolean res = true;
         if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        DynamicArray other = (DynamicArray) obj;
-        if (arr.length != other.arr.length) {
-            return false;
-        }
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] != other.arr[i]) {
-                return false;
+            res = true;
+        } else if (obj == null || getClass() != obj.getClass()) {
+            res = false;
+        } else {
+            DynamicArray other = (DynamicArray) obj;
+            if (arr.length != other.arr.length) {
+                res = false;
+            } else {
+                for (int i = 0; i < arr.length; i++) {
+                    if (arr[i] != other.arr[i]) {
+                        res = false;
+                    }
+                }
             }
         }
-        return true;
+        return res;
     }
 
     @Override
