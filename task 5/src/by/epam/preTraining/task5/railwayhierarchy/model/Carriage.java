@@ -37,7 +37,7 @@ public class Carriage {
 
     @Override
     public String toString() {
-        return "Carriage, length = " + length+", width = "+weight;
+        return "Carriage, length = " + length+", weight = "+weight;
     }
 
     @Override

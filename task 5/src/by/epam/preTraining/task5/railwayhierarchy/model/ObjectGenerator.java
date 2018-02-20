@@ -14,6 +14,8 @@ public class ObjectGenerator {
 
     private static FreightTrain createRandomFreightTrain(Random rand) {
         FreightTrain tr = new FreightTrain();
+        int number = rand.nextInt(MAX_BOUND) + 1;
+        tr.setNumber(number);
         int carriageNumber = rand.nextInt(MAX_BOUND) + 1;
         for (int i = 0; i < carriageNumber; i++) {
             tr.addCarriage(createRandomCarriage(rand));
@@ -25,6 +27,8 @@ public class ObjectGenerator {
 
     private static PassengerTrain createRandomPassengerTrain(Random rand) {
         PassengerTrain tr = new PassengerTrain();
+        int number = rand.nextInt(MAX_BOUND) + 1;
+        tr.setNumber(number);
         int carriageNumber = rand.nextInt(MAX_BOUND) + 1;
         for (int i = 0; i < carriageNumber; i++) {
             tr.addCarriage(createRandomCarriage(rand));

@@ -11,7 +11,8 @@ public class FreightTrain extends Train implements FreightTransport {
     public FreightTrain() {
     }
 
-    public FreightTrain(int carriageNumber) {
+    public FreightTrain(int number, int carriageNumber) {
+        this.number = number;
         carriages = new DynamicArray<>();
         for (int i = 0; i < carriageNumber; i++) {
             carriages.add(new Carriage());
@@ -35,4 +36,10 @@ public class FreightTrain extends Train implements FreightTransport {
     public void removeCargo(int weight) {
         freightWeight -= weight;
     }
+
+    @Override
+    public String toString() {
+        return "Freight train, number = " + number + ", length = " + calculateLength()+", weight = "+calculateTotalWeight()+", cargo weight = "+freightWeight;
+    }
+
 }

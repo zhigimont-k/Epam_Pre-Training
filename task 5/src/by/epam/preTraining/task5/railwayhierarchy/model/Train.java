@@ -7,13 +7,23 @@ import by.epam.preTraining.task5.container.model.DynamicArray;
  */
 public abstract class Train {
     protected DynamicArray<Carriage> carriages;
+    protected int number;
 
     public Train() {
         carriages = new DynamicArray<>();
     }
 
-    public Train(Carriage... car) {
+    public Train(int number, Carriage... car) {
+        this.number = number;
         carriages = new DynamicArray<>(car);
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
     }
 
     public int getCarriageNumber() {
@@ -57,14 +67,9 @@ public abstract class Train {
     }
 
     @Override
-    public String toString() {
-        return "Train, length = " + calculateLength()+", weight = "+calculateTotalWeight();
-    }
-
-    @Override
     public int hashCode() {
         int hash = 1;
-        hash += hash * 31 + carriages.hashCode();
+        hash += hash * 31 + carriages.hashCode() + number;
         return hash;
     }
 
@@ -76,10 +81,7 @@ public abstract class Train {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Train other = (Train) obj;
-        if (!carriages.equals(other.carriages)){
-            return false;
-        }
-        return true;
+        FreightTrain other = (FreightTrain) obj;
+        return this.number == other.number;
     }
 }
