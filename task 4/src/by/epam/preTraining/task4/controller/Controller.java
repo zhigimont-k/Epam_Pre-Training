@@ -44,7 +44,7 @@ public class Controller {
     private static void runTask5(int n, String from, String to, String middle) {
         View.print("-------Task 4.5");
         View.print("Input: "+n);
-        View.print("Recursive Hanoi towers: " + HanoiTower.calculateHanoiRecursive(n, from, to, middle));
+        View.print("Recursive Hanoi towers: " + HanoiTower.calculateHanoiRecursive(new StringBuilder(), n, from, to, middle));
         View.print("Non-recursive Hanoi towers: " + HanoiTower.calculateHanoi(n, from, to, middle));
     }
 }

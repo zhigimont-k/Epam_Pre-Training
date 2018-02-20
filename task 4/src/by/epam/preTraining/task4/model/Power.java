@@ -5,9 +5,8 @@ public class Power {
     public static double powRecursive(double x, int n) {
         if (n > 0) {
             return x * powRecursive(x, n - 1);
-        } else {
-            return 1;
         }
+        return 1;
     }
 
     public static double pow(double x, int n) {

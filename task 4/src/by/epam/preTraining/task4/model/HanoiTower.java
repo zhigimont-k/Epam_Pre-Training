@@ -1,13 +1,12 @@
 package by.epam.preTraining.task4.model;
 
 public class HanoiTower {
-    private static StringBuilder resultRecursive = new StringBuilder();
 
-    public static StringBuilder calculateHanoiRecursive(int rings, String from, String to, String middle) {
+    public static StringBuilder calculateHanoiRecursive(StringBuilder resultRecursive, int rings, String from, String to, String middle) {
         if (rings > 0) {
-            calculateHanoiRecursive(rings - 1, from, middle, to);
+            calculateHanoiRecursive(resultRecursive,rings - 1, from, middle, to);
             resultRecursive.append("\n" + from + "->" + to);
-            calculateHanoiRecursive(rings - 1, middle, to, from);
+            calculateHanoiRecursive(resultRecursive,rings - 1, middle, to, from);
         }
         return resultRecursive;
     }
