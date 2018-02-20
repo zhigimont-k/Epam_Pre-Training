@@ -13,7 +13,7 @@ public class DynamicArray<T> implements Iterable<T> {
 
     public DynamicArray(T... ob) {
         arr = (T[]) new Object[ob.length];
-        for (int i = 0; i < ob.length; i++){
+        for (int i = 0; i < ob.length; i++) {
             arr[i] = ob[i];
         }
         length = arr.length;
@@ -90,48 +90,42 @@ public class DynamicArray<T> implements Iterable<T> {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder();
         if (arr == null){
-            s.append("null");
-        } else {
-            int last = arr.length - 1;
-            if (last == -1) {
-                s.append("[]");
-            } else {
-                s.append("[");
-                for (int i = 0; ; i++) {
-                    s.append(arr[i]);
-                    if (i == last) {
-                        s.append("]");
-                        break;
-                    }
-                    s.append(", ");
-                }
-            }
+            return "null";
         }
-        return s.toString();
+        int last = arr.length - 1;
+        if (last == -1){
+            return "[]";
+        }
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+        for (int i = 0; ; i++){
+            s.append(arr[i]);
+            if (i == last){
+                return s.append("]").toString();
+            }
+            s.append(", ");
+        }
     }
 
     @Override
     public boolean equals(Object obj) {
-        boolean res = true;
         if (this == obj) {
-            res = true;
-        } else if (obj == null || getClass() != obj.getClass()) {
-            res = false;
-        } else {
-            DynamicArray other = (DynamicArray) obj;
-            if (arr.length != other.arr.length) {
-                res = false;
-            } else {
-                for (int i = 0; i < arr.length; i++) {
-                    if (arr[i] != other.arr[i]) {
-                        res = false;
-                    }
-                }
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        DynamicArray other = (DynamicArray) obj;
+        if (arr.length != other.arr.length) {
+            return false;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != other.arr[i]) {
+                return false;
             }
         }
-        return res;
+        return true;
     }
 
     @Override
