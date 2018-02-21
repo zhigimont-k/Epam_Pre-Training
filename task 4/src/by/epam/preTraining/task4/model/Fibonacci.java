@@ -2,17 +2,10 @@ package by.epam.preTraining.task4.model;
 
 public class Fibonacci {
     public static int calculateFibonacciRecursive(int number) {
-        int result;
         if (number > 2) {
-            result = calculateFibonacciRecursive(number - 1) + calculateFibonacciRecursive(number - 2);
-        } else if (number == 2) {
-            result = 1;
-        } else if (number == 1) {
-            result = 0;
-        } else {
-            result = -1;
+            return calculateFibonacciRecursive(number - 1) + calculateFibonacciRecursive(number - 2);
         }
-        return result;
+        return (number > 0) ? number - 1 : -1;
     }
 
     public static int calculateFibonacci(int number) {
