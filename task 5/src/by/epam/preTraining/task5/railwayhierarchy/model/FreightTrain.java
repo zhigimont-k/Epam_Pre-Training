@@ -2,9 +2,6 @@ package by.epam.preTraining.task5.railwayhierarchy.model;
 
 import by.epam.preTraining.task5.container.model.DynamicArray;
 
-/**
- * Created by karina on 18-02-2018.
- */
 public class FreightTrain extends Train implements FreightTransport {
     private int freightWeight;
 
@@ -39,7 +36,8 @@ public class FreightTrain extends Train implements FreightTransport {
 
     @Override
     public String toString() {
-        return "Freight train, number = " + number + ", length = " + calculateLength()+", weight = "+calculateTotalWeight()+", cargo weight = "+freightWeight;
+        return "Freight train, number = " + number + ", length = " + calculateLength()+", weight = "+
+                calculateTotalWeight()+", cargo weight = "+freightWeight;
     }
 
 }

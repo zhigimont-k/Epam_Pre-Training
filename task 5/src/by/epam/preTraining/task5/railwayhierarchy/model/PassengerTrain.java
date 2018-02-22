@@ -2,9 +2,6 @@ package by.epam.preTraining.task5.railwayhierarchy.model;
 
 import by.epam.preTraining.task5.container.model.DynamicArray;
 
-/**
- * Created by karina on 18-02-2018.
- */
 public class PassengerTrain extends Train implements PassengerTransport {
     public static final int AVG_HUMAN_WEIGHT = 60;
     private int passengerNumber;

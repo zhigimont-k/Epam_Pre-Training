@@ -2,9 +2,7 @@ package by.epam.preTraining.task5.railwayhierarchy.model;
 
 import by.epam.preTraining.task5.container.model.DynamicArray;
 
-/**
- * Created by karina on 18-02-2018.
- */
+
 public abstract class Train {
     protected DynamicArray<Carriage> carriages;
     protected int number;

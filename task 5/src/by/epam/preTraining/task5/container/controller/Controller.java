@@ -3,9 +3,6 @@ package by.epam.preTraining.task5.container.controller;
 import by.epam.preTraining.task5.container.model.DynamicArray;
 import by.epam.preTraining.task5.container.view.View;
 
-/**
- * Created by karina on 18-02-2018.
- */
 public class Controller {
     public static void arrayTest() {
         DynamicArray a = new DynamicArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);

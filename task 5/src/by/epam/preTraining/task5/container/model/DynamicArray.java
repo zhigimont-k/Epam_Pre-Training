@@ -31,7 +31,7 @@ public class DynamicArray<T> implements Iterable<T> {
         length = arr.length;
     }
 
-    public void addAt(int index, T... ob) throws ArrayIndexOutOfBoundsException, ClassCastException {
+    public void addAt(int index, T... ob){
         T[] newArr = (T[]) new Object[arr.length + ob.length];
         for (int i = 0; i < index; i++) {
             newArr[i] = arr[i];
@@ -50,15 +50,15 @@ public class DynamicArray<T> implements Iterable<T> {
         return length == 0;
     }
 
-    public T getAt(int index) throws ArrayIndexOutOfBoundsException {
+    public T getAt(int index){
         return arr[index];
     }
 
-    public void setAt(int index, T ob) throws ArrayIndexOutOfBoundsException {
+    public void setAt(int index, T ob){
         arr[index] = ob;
     }
 
-    public void removeAt(int index) throws ArrayIndexOutOfBoundsException, ClassCastException {
+    public void removeAt(int index){
         T[] newArr = (T[]) new Object[arr.length - 1];
         for (int i = 0; i < index; i++) {
             newArr[i] = arr[i];
@@ -70,7 +70,7 @@ public class DynamicArray<T> implements Iterable<T> {
         length = arr.length;
     }
 
-    public void removeAll() throws ArrayIndexOutOfBoundsException {
+    public void removeAll(){
         arr = (T[]) new Object[0];
         length = arr.length;
     }

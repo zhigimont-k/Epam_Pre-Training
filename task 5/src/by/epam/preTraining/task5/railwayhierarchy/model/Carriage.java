@@ -1,8 +1,5 @@
 package by.epam.preTraining.task5.railwayhierarchy.model;
 
-/**
- * Created by karina on 18-02-2018.
- */
 public class Carriage {
     private int length;
     private int weight;
