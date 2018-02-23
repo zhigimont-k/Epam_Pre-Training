@@ -1,21 +1,9 @@
 package by.epam.preTraining.task6.model.datastructures;
 
-import by.epam.preTraining.task6.model.datastructures.exception.EmptyCollectionException;
-
 import java.util.List;
 
-public class ListDataType<T> extends AbstractDataType<T>{
+public abstract class ListDataType<T> extends AbstractDataType<T> {
     protected List<T> list;
-
-    protected ListDataType(){}
-
-    @Override
-    public T peek() throws EmptyCollectionException {
-        if (isEmpty()){
-            throw new EmptyCollectionException();
-        }
-        return list.get(size - 1);
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -49,18 +37,18 @@ public class ListDataType<T> extends AbstractDataType<T>{
 
     @Override
     public String toString() {
-        if (list == null){
+        if (list == null) {
             return "null";
         }
         int last = list.size() - 1;
-        if (last == -1){
+        if (last == -1) {
             return "[]";
         }
         StringBuilder s = new StringBuilder();
         s.append("[");
-        for (int i = 0; ; i++){
+        for (int i = 0; ; i++) {
             s.append(list.get(i));
-            if (i == last){
+            if (i == last) {
                 return s.append("]").toString();
             }
             s.append(", ");

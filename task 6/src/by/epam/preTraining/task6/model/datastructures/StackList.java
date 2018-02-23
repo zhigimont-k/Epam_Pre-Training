@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class StackList<T> extends ListDataType<T> implements Stack<T> {
 
-    public StackList(){
+    public StackList() {
         list = new ArrayList<>();
     }
 
@@ -33,6 +33,15 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
         list.remove(size - 1);
         size--;
         return popped;
+    }
+
+
+    @Override
+    public T peek() throws EmptyCollectionException {
+        if (isEmpty()) {
+            throw new EmptyCollectionException();
+        }
+        return list.get(size - 1);
     }
 
 }

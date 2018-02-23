@@ -1,11 +1,7 @@
 package by.epam.preTraining.task6.model.datastructures;
 
-import by.epam.preTraining.task6.model.datastructures.exception.EmptyCollectionException;
-
-public class ArrayDataType<T> extends AbstractDataType<T>{
+public abstract class ArrayDataType<T> extends AbstractDataType<T>{
     protected T arr[];
-
-    protected ArrayDataType(){}
 
     @Override
     public String toString() {
@@ -27,13 +23,6 @@ public class ArrayDataType<T> extends AbstractDataType<T>{
         }
     }
 
-    @Override
-    public T peek() throws EmptyCollectionException {
-        if (isEmpty()){
-            throw new EmptyCollectionException();
-        }
-        return arr[size-1];
-    }
 
     @Override
     public boolean equals(Object obj) {

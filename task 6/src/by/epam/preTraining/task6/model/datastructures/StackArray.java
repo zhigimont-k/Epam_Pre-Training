@@ -59,4 +59,13 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
         return popped;
     }
 
+
+    @Override
+    public T peek() throws EmptyCollectionException {
+        if (isEmpty()){
+            throw new EmptyCollectionException();
+        }
+        return arr[size-1];
+    }
+
 }

@@ -18,7 +18,7 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
         }
         T newArr[] = (T[]) (new Object[arr.length - 1]);
         for (int i = 1; i < arr.length; i++) {
-            newArr[i-1] = arr[i];
+            newArr[i - 1] = arr[i];
         }
         T popped = arr[0];
         arr = newArr.clone();
@@ -56,6 +56,13 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
             arr = newArr.clone();
         }
         size++;
+    }
+
+    public T peek() throws EmptyCollectionException {
+        if (isEmpty()) {
+            throw new EmptyCollectionException();
+        }
+        return arr[size - 1];
     }
 
 }

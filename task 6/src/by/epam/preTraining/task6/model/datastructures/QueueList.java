@@ -35,4 +35,12 @@ public class QueueList<T> extends ListDataType<T> implements Queue<T> {
         size++;
     }
 
+    @Override
+    public T peek() throws EmptyCollectionException {
+        if (isEmpty()) {
+            throw new EmptyCollectionException();
+        }
+        return list.get(0);
+    }
+
 }
