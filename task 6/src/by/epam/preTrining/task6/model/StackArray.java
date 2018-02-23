@@ -59,21 +59,29 @@ public class StackArray<T> implements Stack<T> {
             if (size + 1 > capacity) {
                 throw new CollectionOverflowException();
             }
+
             T newArr[] = (T[]) (new Object[capacity]);
-            for (int i = 0; i < arr.length - 1; i++) {
-                newArr[i] = arr[i + 1];
+            if (size != 0 && arr[0] == null) {
+                for (int i = 0; i < arr.length - 1; i++) {
+                    newArr[i] = arr[i + 1];
+                }
+                newArr[newArr.length - 1] = elem;
+            } else {
+                for (int i = 0; i < arr.length; i++) {
+                    newArr[i] = arr[i];
+                }
+                newArr[newArr.length - 1] = elem;
             }
-            newArr[newArr.length - 1] = elem;
             arr = newArr.clone();
-            size++;
         } else {
             T newArr[] = (T[]) (new Object[arr.length + 1]);
             for (int i = 0; i < newArr.length - 1; i++) {
-                newArr[i] = arr[i + 1];
+                newArr[i] = arr[i];
             }
             newArr[newArr.length - 1] = elem;
             arr = newArr.clone();
         }
+        size++;
     }
 
     @SuppressWarnings("unchecked")
