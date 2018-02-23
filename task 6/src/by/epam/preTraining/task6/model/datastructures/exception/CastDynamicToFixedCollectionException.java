@@ -1,4 +1,4 @@
-package by.epam.preTrining.task6.model.exception;
+package by.epam.preTraining.task6.model.datastructures.exception;
 
 public class CastDynamicToFixedCollectionException extends Exception {
 }
