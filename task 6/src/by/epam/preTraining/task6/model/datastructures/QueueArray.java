@@ -62,7 +62,7 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
         if (isEmpty()) {
             throw new EmptyCollectionException();
         }
-        return arr[size - 1];
+        return arr[0];
     }
 
 }
