@@ -1,8 +1,8 @@
 package by.epam.preTraining.task6.model.palindrome;
 
-import by.epam.preTraining.task6.model.datastructures.StackArray;
-import by.epam.preTraining.task6.model.datastructures.exception.CollectionOverflowException;
-import by.epam.preTraining.task6.model.datastructures.exception.EmptyCollectionException;
+import by.epam.preTraining.task6.model.datastructure.StackArray;
+import by.epam.preTraining.task6.model.datastructure.exception.DataStructureIndexOutOfBoundsException;
+import by.epam.preTraining.task6.model.datastructure.exception.EmptyCollectionException;
 
 public class Palindrome {
     public static boolean checkPalindrome(String s) {
@@ -19,7 +19,7 @@ public class Palindrome {
                 reversed.append(stack.pop());
             }
             result = sb.toString().equals(reversed.toString());
-        } catch (CollectionOverflowException | EmptyCollectionException e) {
+        } catch (DataStructureIndexOutOfBoundsException | EmptyCollectionException e) {
             e.printStackTrace();
         }
         return result;

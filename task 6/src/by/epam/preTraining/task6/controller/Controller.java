@@ -1,7 +1,7 @@
 package by.epam.preTraining.task6.controller;
 
-import by.epam.preTraining.task6.model.datastructures.*;
-import by.epam.preTraining.task6.model.datastructures.exception.*;
+import by.epam.preTraining.task6.model.datastructure.*;
+import by.epam.preTraining.task6.model.datastructure.exception.*;
 import by.epam.preTraining.task6.view.View;
 
 import java.util.Random;
@@ -33,8 +33,8 @@ public class Controller {
             View.print("Stack: " + s);
             View.print("Popped element: " + s.pop());
             View.print("Stack: " + s);
-        } catch (CollectionOverflowException | EmptyCollectionException e) {
-            View.print("Exception");
+        } catch (DataStructureIndexOutOfBoundsException | EmptyCollectionException e) {
+            View.print(e.getMessage());
         }
     }
 
@@ -48,7 +48,7 @@ public class Controller {
             stackArrayFixed.setCapacity(10);
             stackListFixed.setCapacity(10);
         } catch (CastDynamicToFixedCollectionException | ChangeFixedCapacityException | NegativeCapacityException e) {
-            View.print("Exception");
+            View.print(e.getMessage());
         }
         View.print("----------FIXED-SIZE ARRAY STACK:");
         testStack(stackArrayFixed);
@@ -71,8 +71,8 @@ public class Controller {
             View.print("Queue: " + q);
             View.print("Popped element: " + q.dequeue());
             View.print("Queue: " + q);
-        } catch (CollectionOverflowException | EmptyCollectionException e) {
-            View.print("Exception");
+        } catch (DataStructureIndexOutOfBoundsException | EmptyCollectionException e) {
+            View.print(e.getMessage());
         }
     }
 
@@ -85,7 +85,7 @@ public class Controller {
             queueArrayFixed.setCapacity(10);
             queueListFixed.setCapacity(10);
         } catch (CastDynamicToFixedCollectionException | ChangeFixedCapacityException | NegativeCapacityException e) {
-            View.print("Exception");
+            View.print(e.getMessage());
         }
         View.print("----------FIXED-SIZE ARRAY QUEUE:");
         testQueue(queueArrayFixed);

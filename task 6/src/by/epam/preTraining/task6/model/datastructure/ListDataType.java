@@ -1,4 +1,6 @@
-package by.epam.preTraining.task6.model.datastructures;
+package by.epam.preTraining.task6.model.datastructure;
+
+import by.epam.preTraining.task6.model.datastructure.exception.EmptyCollectionException;
 
 import java.util.List;
 
@@ -24,6 +26,10 @@ public abstract class ListDataType<T> extends AbstractDataType<T> {
         }
         return true;
     }
+
+
+    @Override
+    public abstract T peek() throws EmptyCollectionException;
 
 
     @Override

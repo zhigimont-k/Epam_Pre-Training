@@ -1,6 +1,6 @@
-package by.epam.preTraining.task6.model.datastructures;
+package by.epam.preTraining.task6.model.datastructure;
 
-import by.epam.preTraining.task6.model.datastructures.exception.*;
+import by.epam.preTraining.task6.model.datastructure.exception.*;
 
 public abstract class AbstractDataType<T> {
     protected int size;
@@ -24,13 +24,13 @@ public abstract class AbstractDataType<T> {
     public void setCapacity(int capacity) throws CastDynamicToFixedCollectionException,
             ChangeFixedCapacityException, NegativeCapacityException {
         if (!isEmpty() && this.capacity != 0) {
-            throw new CastDynamicToFixedCollectionException();
+            throw new CastDynamicToFixedCollectionException("Can't cast dynamic collection to fixed size");
         }
         if (!isEmpty() || this.capacity != 0) {
-            throw new ChangeFixedCapacityException();
+            throw new ChangeFixedCapacityException("Can't change already set collection capacity");
         }
         if (capacity <= 0) {
-            throw new NegativeCapacityException();
+            throw new NegativeCapacityException("Capacity must be bigger than 0");
         }
         this.capacity = capacity;
         fixedSize = true;

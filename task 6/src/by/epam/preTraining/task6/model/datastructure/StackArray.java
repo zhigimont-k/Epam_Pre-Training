@@ -1,6 +1,6 @@
-package by.epam.preTraining.task6.model.datastructures;
+package by.epam.preTraining.task6.model.datastructure;
 
-import by.epam.preTraining.task6.model.datastructures.exception.*;
+import by.epam.preTraining.task6.model.datastructure.exception.*;
 
 public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
 
@@ -13,10 +13,10 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void push(T elem) throws CollectionOverflowException {
+    public void push(T elem) throws DataStructureIndexOutOfBoundsException {
         if (fixedSize) {
-            if (size >= capacity) {
-                throw new CollectionOverflowException();
+            if (isFull()) {
+                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
             }
 
             T newArr[] = (T[]) (new Object[capacity]);
@@ -46,8 +46,8 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
     @SuppressWarnings("unchecked")
     @Override
     public T pop() throws EmptyCollectionException {
-        if (this.isEmpty()) {
-            throw new EmptyCollectionException();
+        if (isEmpty()) {
+            throw new EmptyCollectionException("Can't remove element from empty collection");
         }
         T newArr[] = (T[]) (new Object[arr.length - 1]);
         for (int i = 0; i < newArr.length; i++) {
@@ -63,7 +63,7 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
     @Override
     public T peek() throws EmptyCollectionException {
         if (isEmpty()){
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("Can't get elements from empty collection");
         }
         return arr[size-1];
     }

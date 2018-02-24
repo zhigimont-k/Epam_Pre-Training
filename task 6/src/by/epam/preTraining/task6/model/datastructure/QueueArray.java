@@ -1,7 +1,7 @@
-package by.epam.preTraining.task6.model.datastructures;
+package by.epam.preTraining.task6.model.datastructure;
 
 
-import by.epam.preTraining.task6.model.datastructures.exception.*;
+import by.epam.preTraining.task6.model.datastructure.exception.*;
 
 public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
 
@@ -13,8 +13,8 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
     @SuppressWarnings("unchecked")
     @Override
     public T dequeue() throws EmptyCollectionException {
-        if (this.isEmpty()) {
-            throw new EmptyCollectionException();
+        if (isEmpty()) {
+            throw new EmptyCollectionException("Can't remove element from empty collection");
         }
         T newArr[] = (T[]) (new Object[arr.length - 1]);
         for (int i = 1; i < arr.length; i++) {
@@ -28,10 +28,10 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void enqueue(T elem) throws CollectionOverflowException {
+    public void enqueue(T elem) throws DataStructureIndexOutOfBoundsException {
         if (fixedSize) {
-            if (size + 1 > capacity) {
-                throw new CollectionOverflowException();
+            if (isFull()) {
+                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
             }
 
             T newArr[] = (T[]) (new Object[capacity]);
@@ -60,7 +60,7 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
 
     public T peek() throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("Can't get elements from empty collection");
         }
         return arr[0];
     }

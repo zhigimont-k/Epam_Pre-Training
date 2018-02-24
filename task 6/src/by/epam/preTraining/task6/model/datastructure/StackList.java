@@ -1,6 +1,6 @@
-package by.epam.preTraining.task6.model.datastructures;
+package by.epam.preTraining.task6.model.datastructure;
 
-import by.epam.preTraining.task6.model.datastructures.exception.*;
+import by.epam.preTraining.task6.model.datastructure.exception.*;
 
 import java.util.ArrayList;
 
@@ -11,10 +11,10 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
     }
 
     @Override
-    public void push(T e) throws CollectionOverflowException {
+    public void push(T e) throws DataStructureIndexOutOfBoundsException {
         if (fixedSize) {
             if (size >= capacity) {
-                throw new CollectionOverflowException();
+                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
             }
             if (size != 0 && list.get(0) == null) {
                 list.remove(0);
@@ -26,8 +26,8 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
 
     @Override
     public T pop() throws EmptyCollectionException {
-        if (this.isEmpty()) {
-            throw new EmptyCollectionException();
+        if (isEmpty()) {
+            throw new EmptyCollectionException("Can't remove element from empty collection");
         }
         T popped = list.get(size - 1);
         list.remove(size - 1);
@@ -39,7 +39,7 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
     @Override
     public T peek() throws EmptyCollectionException {
         if (isEmpty()) {
-            throw new EmptyCollectionException();
+            throw new EmptyCollectionException("Can't get elements from empty collection");
         }
         return list.get(size - 1);
     }
