@@ -23,10 +23,10 @@ public abstract class AbstractDataType<T> {
 
     public void setCapacity(int capacity) throws CastDynamicToFixedCollectionException,
             ChangeFixedCapacityException, NegativeCapacityException {
-        if (!isEmpty() && this.capacity != 0) {
+        if (!isEmpty() && this.capacity == 0) {
             throw new CastDynamicToFixedCollectionException("Can't cast dynamic collection to fixed size");
         }
-        if (!isEmpty() || this.capacity != 0) {
+        if (this.capacity != 0) {
             throw new ChangeFixedCapacityException("Can't change already set collection capacity");
         }
         if (capacity <= 0) {

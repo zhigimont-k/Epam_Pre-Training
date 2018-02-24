@@ -7,8 +7,6 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
     @SuppressWarnings("unchecked")
     public StackArray() {
         arr = (T[]) (new Object[0]);
-        size = 0;
-        capacity = 0;
     }
 
     @SuppressWarnings("unchecked")
