@@ -12,7 +12,7 @@ public abstract class AbstractDataType<T> {
     }
 
     public boolean isFull() {
-        return size == capacity;
+        return size != 0 && capacity != 0 && size == capacity;
     }
 
     public abstract T peek() throws EmptyCollectionException;

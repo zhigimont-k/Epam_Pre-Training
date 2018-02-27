@@ -12,11 +12,10 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
     @SuppressWarnings("unchecked")
     @Override
     public void push(T elem) throws DataStructureIndexOutOfBoundsException {
+        if (isFull()) {
+            throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
+        }
         if (fixedSize) {
-            if (isFull()) {
-                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
-            }
-
             T newArr[] = (T[]) (new Object[capacity]);
             if (size != 0 && arr[0] == null) {
                 for (int i = 0; i < arr.length - 1; i++) {
@@ -60,10 +59,10 @@ public class StackArray<T> extends ArrayDataType<T> implements Stack<T> {
 
     @Override
     public T peek() throws EmptyCollectionException {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new EmptyCollectionException("Can't get elements from empty collection");
         }
-        return arr[size-1];
+        return arr[size - 1];
     }
 
 }

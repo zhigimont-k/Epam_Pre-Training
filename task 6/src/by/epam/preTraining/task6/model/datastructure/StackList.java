@@ -3,11 +3,12 @@ package by.epam.preTraining.task6.model.datastructure;
 import by.epam.preTraining.task6.model.datastructure.exception.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class StackList<T> extends ListDataType<T> implements Stack<T> {
 
     public StackList() {
-        list = new ArrayList<>();
+        list = new LinkedList<>();
     }
 
     @Override

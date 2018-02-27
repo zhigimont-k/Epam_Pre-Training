@@ -5,23 +5,17 @@ import by.epam.preTraining.task6.model.datastructure.exception.DataStructureInde
 import by.epam.preTraining.task6.model.datastructure.exception.EmptyCollectionException;
 
 public class Palindrome {
-    public static boolean checkPalindrome(String s) {
-        boolean result = false;
-        StringBuilder sb = new StringBuilder(s.toLowerCase());
-        StackArray<String> stack = new StackArray<>();
-        try {
-            for (int i = 0; i < sb.length(); i++) {
-                stack.push(sb.substring(i, i + 1));
-            }
-
-            StringBuilder reversed = new StringBuilder("");
-            while (!stack.isEmpty()) {
-                reversed.append(stack.pop());
-            }
-            result = sb.toString().equals(reversed.toString());
-        } catch (DataStructureIndexOutOfBoundsException | EmptyCollectionException e) {
-            e.printStackTrace();
+    public static boolean checkPalindrome(String s) throws DataStructureIndexOutOfBoundsException, EmptyCollectionException {
+        StackArray stack = new StackArray<>();
+        s = s.toLowerCase();
+        for (int i = 0; i < s.length(); i++) {
+            stack.push(s.charAt(i));
         }
-        return result;
+
+        StringBuilder reversed = new StringBuilder("");
+        while (!stack.isEmpty()) {
+            reversed.append(stack.pop());
+        }
+        return s.equals(reversed.toString());
     }
 }

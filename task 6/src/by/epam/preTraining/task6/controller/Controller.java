@@ -10,12 +10,16 @@ import static by.epam.preTraining.task6.model.palindrome.Palindrome.checkPalindr
 
 public class Controller {
     public static void main(String[] args) {
-        testPalindrome();
+        try{
+            testPalindrome();
+        } catch (DataStructureIndexOutOfBoundsException | EmptyCollectionException e) {
+            View.print(e.getMessage());
+        }
         testStacks();
         testQueues();
     }
 
-    private static void testPalindrome() {
+    private static void testPalindrome() throws DataStructureIndexOutOfBoundsException, EmptyCollectionException {
         String s = "Racecar";
         View.print(s + " is a palindrome: " + checkPalindrome(s));
         s = "Test";
