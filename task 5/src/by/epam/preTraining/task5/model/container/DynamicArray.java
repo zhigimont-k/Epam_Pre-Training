@@ -1,4 +1,4 @@
-package by.epam.preTraining.task5.container.model;
+package by.epam.preTraining.task5.model.container;
 
 import java.util.Iterator;
 
@@ -15,6 +15,14 @@ public class DynamicArray<T> implements Iterable<T> {
         arr = (T[]) new Object[ob.length];
         for (int i = 0; i < ob.length; i++) {
             arr[i] = ob[i];
+        }
+        length = arr.length;
+    }
+
+    public DynamicArray(DynamicArray dynamicArray) {
+        arr = (T[]) new Object[dynamicArray.length];
+        for (int i = 0; i < dynamicArray.length; i++) {
+            arr[i] = (T)dynamicArray.getAt(i);
         }
         length = arr.length;
     }

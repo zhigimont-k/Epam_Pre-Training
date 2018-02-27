@@ -1,4 +1,4 @@
-package by.epam.preTraining.task5.railwayhierarchy.view;
+package by.epam.preTraining.task5.view;
 
 /**
  * Created by karina on 18-02-2018.

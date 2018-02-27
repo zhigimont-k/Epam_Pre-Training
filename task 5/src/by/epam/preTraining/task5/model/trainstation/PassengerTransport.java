@@ -1,4 +1,4 @@
-package by.epam.preTraining.task5.railwayhierarchy.model;
+package by.epam.preTraining.task5.model.trainstation;
 
 public interface PassengerTransport {
     void addPassenger(int number);

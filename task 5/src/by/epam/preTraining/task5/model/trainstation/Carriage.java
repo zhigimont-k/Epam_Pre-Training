@@ -1,4 +1,4 @@
-package by.epam.preTraining.task5.railwayhierarchy.model;
+package by.epam.preTraining.task5.model.trainstation;
 
 public class Carriage {
     private int length;
@@ -14,6 +14,11 @@ public class Carriage {
     public Carriage(int length, int weight) {
         this.length = length;
         this.weight = weight;
+    }
+
+    public Carriage(Carriage car) {
+        this.length = car.length;
+        this.weight = car.weight;
     }
 
     public int getWeight() {
@@ -34,7 +39,7 @@ public class Carriage {
 
     @Override
     public String toString() {
-        return "Carriage, length = " + length+", weight = "+weight;
+        return "Carriage, length = " + length + ", weight = " + weight;
     }
 
     @Override
@@ -53,7 +58,7 @@ public class Carriage {
             return false;
         }
         Carriage other = (Carriage) obj;
-        if (this.length != other.length || this.weight != other.weight){
+        if (this.length != other.length || this.weight != other.weight) {
             return false;
         }
         return true;

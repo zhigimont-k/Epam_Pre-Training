@@ -1,6 +1,6 @@
-package by.epam.preTraining.task5.railwayhierarchy.model;
+package by.epam.preTraining.task5.model.trainstation;
 
-import by.epam.preTraining.task5.container.model.DynamicArray;
+import by.epam.preTraining.task5.model.container.DynamicArray;
 
 public class PassengerTrain extends Train implements PassengerTransport {
     public static final int AVG_HUMAN_WEIGHT = 60;
@@ -16,6 +16,16 @@ public class PassengerTrain extends Train implements PassengerTransport {
         carriages = new DynamicArray<>();
         for (int i = 0; i < carriageNumber; i++) {
             carriages.add(new Carriage());
+        }
+    }
+
+    public PassengerTrain(PassengerTrain train) {
+        this.number = train.number;
+        this.passengerNumber = train.passengerNumber;
+        carriages = new DynamicArray<>();
+        int carriageNumber = train.getCarriageNumber();
+        for (int i = 0; i < carriageNumber; i++) {
+            carriages.add(new Carriage(train.carriages.getAt(i)));
         }
     }
 

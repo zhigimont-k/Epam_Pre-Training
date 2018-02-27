@@ -1,6 +1,6 @@
-package by.epam.preTraining.task5.railwayhierarchy.model;
+package by.epam.preTraining.task5.model.trainstation;
 
-import by.epam.preTraining.task5.container.model.DynamicArray;
+import by.epam.preTraining.task5.model.container.DynamicArray;
 
 
 public class TrainStation {

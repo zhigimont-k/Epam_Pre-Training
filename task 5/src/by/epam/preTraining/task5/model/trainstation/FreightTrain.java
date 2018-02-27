@@ -1,6 +1,6 @@
-package by.epam.preTraining.task5.railwayhierarchy.model;
+package by.epam.preTraining.task5.model.trainstation;
 
-import by.epam.preTraining.task5.container.model.DynamicArray;
+import by.epam.preTraining.task5.model.container.DynamicArray;
 
 public class FreightTrain extends Train implements FreightTransport {
     private int freightWeight;
@@ -13,6 +13,16 @@ public class FreightTrain extends Train implements FreightTransport {
         carriages = new DynamicArray<>();
         for (int i = 0; i < carriageNumber; i++) {
             carriages.add(new Carriage());
+        }
+    }
+
+    public FreightTrain(FreightTrain train) {
+        this.number = train.number;
+        this.freightWeight = train.freightWeight;
+        carriages = new DynamicArray<>();
+        int carriageNumber = train.getCarriageNumber();
+        for (int i = 0; i < carriageNumber; i++) {
+            carriages.add(new Carriage(train.carriages.getAt(i)));
         }
     }
 

@@ -1,6 +1,6 @@
-package by.epam.preTraining.task5.railwayhierarchy.model;
+package by.epam.preTraining.task5.model.trainstation;
 
-import by.epam.preTraining.task5.container.model.DynamicArray;
+import by.epam.preTraining.task5.model.container.DynamicArray;
 
 
 public abstract class Train {
@@ -15,6 +15,9 @@ public abstract class Train {
         this.number = number;
         carriages = new DynamicArray<>(car);
     }
+
+
+    abstract public int calculateTotalWeight();
 
     public void setNumber(int number) {
         this.number = number;
@@ -43,8 +46,6 @@ public abstract class Train {
         }
         return weight;
     }
-
-    abstract public int calculateTotalWeight();
 
     public void addCarriage(Carriage... car) {
         carriages.add(car);
