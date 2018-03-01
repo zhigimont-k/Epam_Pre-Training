@@ -26,6 +26,7 @@ public class Controller {
             View.print("Contains 42: " + bt.contains(42));
             bt.remove(42);
             View.print("Traverse in order: " + bt.traverseInOrder());
+            View.print("Contains 42: " + bt.contains(42));
             View.print("Cleared the tree");
             bt.clear();
             View.print("Tree size is " + bt.size());

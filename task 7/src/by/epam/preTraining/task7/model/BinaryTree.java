@@ -2,6 +2,8 @@ package by.epam.preTraining.task7.model;
 
 import by.epam.preTraining.task7.model.exception.EmptyCollectionException;
 
+import java.util.ArrayList;
+
 public class BinaryTree<T extends Comparable> {
     private Node root;
 
@@ -139,5 +141,57 @@ public class BinaryTree<T extends Comparable> {
 
     public StringBuilder traversePreOrder() {
         return traversePreOrderRecursive(root, new StringBuilder());
+    }
+
+    private ArrayList<T> traverseInOrderRecursive(Node node, ArrayList<T> s) {
+        if (node != null) {
+            traverseInOrderRecursive(node.left, s);
+            s.add((T)node.value);
+            traverseInOrderRecursive(node.right, s);
+        }
+        return s;
+    }
+
+    private ArrayList<T> calculateNodes(){
+        return traverseInOrderRecursive(root, new ArrayList<>());
+    }
+
+    @Override
+    public String toString() {
+        return traverseInOrder().toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj){
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+        BinaryTree<T> other = (BinaryTree<T>)obj;
+        ArrayList<T> elem = calculateNodes();
+        ArrayList<T> otherElem = other.calculateNodes();
+        int size = elem.size();
+        int otherSize = otherElem.size();
+        if (size != otherSize){
+            return false;
+        }
+        for (int i = 0; i < size; i++){
+            if (elem.get(i) != otherElem.get(i)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 1;
+        ArrayList<T> elem = calculateNodes();
+        for (T e : elem){
+            hash += hash * 31 + elem.hashCode();
+        }
+        return hash;
     }
 }
