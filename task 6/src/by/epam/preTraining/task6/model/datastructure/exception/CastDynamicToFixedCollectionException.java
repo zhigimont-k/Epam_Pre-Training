@@ -2,7 +2,9 @@ package by.epam.preTraining.task6.model.datastructure.exception;
 
 public class CastDynamicToFixedCollectionException extends Exception {
 
-    public CastDynamicToFixedCollectionException() { }
+    public CastDynamicToFixedCollectionException() {
+        super();
+    }
 
     public CastDynamicToFixedCollectionException(String msg) {
         super(msg);

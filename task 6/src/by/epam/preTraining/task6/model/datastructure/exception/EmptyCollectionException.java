@@ -1,7 +1,9 @@
 package by.epam.preTraining.task6.model.datastructure.exception;
 
 public class EmptyCollectionException extends Exception {
-    public EmptyCollectionException() { }
+    public EmptyCollectionException() {
+        super();
+    }
 
     public EmptyCollectionException(String msg) {
         super(msg);

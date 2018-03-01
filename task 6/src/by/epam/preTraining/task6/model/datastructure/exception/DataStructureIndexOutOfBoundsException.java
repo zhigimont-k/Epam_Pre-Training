@@ -1,7 +1,9 @@
 package by.epam.preTraining.task6.model.datastructure.exception;
 
 public class DataStructureIndexOutOfBoundsException extends Exception {
-    public DataStructureIndexOutOfBoundsException() { }
+    public DataStructureIndexOutOfBoundsException() {
+        super();
+    }
 
     public DataStructureIndexOutOfBoundsException(String msg) {
         super(msg);

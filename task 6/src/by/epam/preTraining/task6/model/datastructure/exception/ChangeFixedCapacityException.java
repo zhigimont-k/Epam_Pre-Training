@@ -1,7 +1,9 @@
 package by.epam.preTraining.task6.model.datastructure.exception;
 
 public class ChangeFixedCapacityException extends Exception {
-    public ChangeFixedCapacityException() { }
+    public ChangeFixedCapacityException() {
+        super();
+    }
 
     public ChangeFixedCapacityException(String msg) {
         super(msg);
