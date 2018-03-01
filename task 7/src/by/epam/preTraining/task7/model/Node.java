@@ -28,10 +28,7 @@ public class Node<T extends Comparable> implements Comparable<T> {
             return false;
         }
         Node<T> other = (Node<T>) obj;
-        if (value != other.value){
-            return false;
-        }
-        return true;
+        return (value == other.value);
     }
 
     @Override
