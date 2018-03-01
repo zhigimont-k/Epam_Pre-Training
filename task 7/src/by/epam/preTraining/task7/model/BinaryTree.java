@@ -102,50 +102,42 @@ public class BinaryTree<T extends Comparable> {
         return current == null ? 0 : sizeRecursive(current.left) + 1 + sizeRecursive(current.right);
     }
 
-    private StringBuilder traverseInOrder(Node node, StringBuilder s) {
+    private StringBuilder traverseInOrderRecursive(Node node, StringBuilder s) {
         if (node != null) {
-            traverseInOrder(node.left, s);
+            traverseInOrderRecursive(node.left, s);
             s.append(node.value + " ");
-            traverseInOrder(node.right, s);
+            traverseInOrderRecursive(node.right, s);
         }
         return s;
     }
 
-    private StringBuilder traversePreOrder(Node node, StringBuilder s) {
+    private StringBuilder traversePreOrderRecursive(Node node, StringBuilder s) {
         if (node != null) {
             s.append(node.value + " ");
-            traversePreOrder(node.left, s);
-            traversePreOrder(node.right, s);
+            traversePreOrderRecursive(node.left, s);
+            traversePreOrderRecursive(node.right, s);
         }
         return s;
     }
 
-    private StringBuilder traversePostOrder(Node node, StringBuilder s) {
+    private StringBuilder traversePostOrderRecursive(Node node, StringBuilder s) {
         if (node != null) {
-            traversePostOrder(node.left, s);
-            traversePostOrder(node.right, s);
+            traversePostOrderRecursive(node.left, s);
+            traversePostOrderRecursive(node.right, s);
             s.append(node.value + " ");
         }
         return s;
     }
 
-    private void traversePostOrder(Node node) {
-        if (node != null) {
-            traversePostOrder(node.left);
-            traversePostOrder(node.right);
-            node = null;
-        }
+    public StringBuilder traversePostOrder() {
+        return traversePostOrderRecursive(root, new StringBuilder());
     }
 
-    public StringBuilder traversePost() {
-        return traversePostOrder(root, new StringBuilder());
+    public StringBuilder traverseInOrder() {
+        return traverseInOrderRecursive(root, new StringBuilder());
     }
 
-    public StringBuilder traverseIn() {
-        return traverseInOrder(root, new StringBuilder());
-    }
-
-    public StringBuilder traversePre() {
-        return traversePreOrder(root, new StringBuilder());
+    public StringBuilder traversePreOrder() {
+        return traversePreOrderRecursive(root, new StringBuilder());
     }
 }

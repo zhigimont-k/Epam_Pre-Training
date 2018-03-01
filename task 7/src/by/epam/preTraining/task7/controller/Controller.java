@@ -15,17 +15,17 @@ public class Controller {
 
     private static void testTree() {
         BinaryTree bt = new BinaryTree();
-        addLeaves(bt);
-        View.print("Traverse post order: " + bt.traversePost());
-        addLeaves(bt);
-        View.print("Traverse pre order: " + bt.traversePre());
+        addLeaves(bt, 5);
+        View.print("Traverse post order: " + bt.traversePostOrder());
+        addLeaves(bt, 5);
+        View.print("Traverse pre order: " + bt.traversePreOrder());
         View.print("Tree size is " + bt.size());
         bt.add(42);
-        View.print("Traverse in order: " + bt.traverseIn());
+        View.print("Traverse in order: " + bt.traverseInOrder());
         try {
             View.print("Contains 42: " + bt.contains(42));
             bt.remove(42);
-            View.print("Traverse in order: " + bt.traverseIn());
+            View.print("Traverse in order: " + bt.traverseInOrder());
             View.print("Cleared the tree");
             bt.clear();
             View.print("Tree size is " + bt.size());
@@ -35,10 +35,9 @@ public class Controller {
         }
     }
 
-    private static void addLeaves(BinaryTree bt) {
+    private static void addLeaves(BinaryTree bt, int number) {
         Random rand = new Random();
-        int size = rand.nextInt(9) + 1;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < number; i++) {
             bt.add(rand.nextInt(VALUE_MAX_BOUND));
         }
     }
