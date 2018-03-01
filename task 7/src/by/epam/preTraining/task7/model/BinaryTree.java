@@ -2,9 +2,6 @@ package by.epam.preTraining.task7.model;
 
 import by.epam.preTraining.task7.model.exception.EmptyCollectionException;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class BinaryTree {
     private Node root;
 
