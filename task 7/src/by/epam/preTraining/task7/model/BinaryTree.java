@@ -2,56 +2,56 @@ package by.epam.preTraining.task7.model;
 
 import by.epam.preTraining.task7.model.exception.EmptyCollectionException;
 
-public class BinaryTree {
+public class BinaryTree<T extends Comparable> {
     private Node root;
 
-    public void add(int value) {
+    public void add(T value) {
         root = addRecursive(root, value);
     }
 
-    private Node addRecursive(Node current, int value) {
+    private Node addRecursive(Node current, T value) {
         if (current == null) {
             return new Node(value);
         }
-        if (value < current.value) {
+        if (value.compareTo(current.value) < 0) {
             current.left = addRecursive(current.left, value);
-        } else if (value >= current.value) {
+        } else if (value.compareTo(current.value) >= 0) {
             current.right = addRecursive(current.right, value);
         }
         return current;
     }
 
-    public boolean contains(int value) throws EmptyCollectionException {
+    public boolean contains(T value) throws EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Collection is empty");
         }
         return containsRecursive(root, value);
     }
 
-    private boolean containsRecursive(Node current, int value) {
+    private boolean containsRecursive(Node current, T value) {
         if (current == null) {
             return false;
         }
-        if (current.value == value) {
+        if (value.compareTo(current.value) == 0) {
             return true;
         }
-        return (value < current.value) ? containsRecursive(current.left, value) :
+        return (value.compareTo(current.value) < 0) ? containsRecursive(current.left, value) :
                 containsRecursive(current.right, value);
     }
 
-    public void remove(int value) throws EmptyCollectionException {
+    public void remove(T value) throws EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Collection is empty");
         }
         removeRecursive(root, value);
     }
 
-    private Node removeRecursive(Node current, int value) {
+    private Node removeRecursive(Node current, T value) {
         if (current == null) {
             return null;
         }
 
-        if (value == current.value) {
+        if (value.compareTo(current.value) == 0) {
             // has no children
             if (current.left == null && current.right == null) {
                 return null;
@@ -67,12 +67,12 @@ public class BinaryTree {
             }
 
             // has 2 children
-            int smallestValue = findSmallestValue(current.right);
+            T smallestValue = findSmallestValue(current.right);
             current.value = smallestValue;
             current.right = removeRecursive(current.right, smallestValue);
             return current;
         }
-        if (value < current.value) {
+        if (value.compareTo(current.value) < 0) {
             current.left = removeRecursive(current.left, value);
             return current;
         }
@@ -81,8 +81,8 @@ public class BinaryTree {
         return current;
     }
 
-    private int findSmallestValue(Node current) {
-        return current.left == null ? current.value : findSmallestValue(current.left);
+    private T findSmallestValue(Node current) {
+        return current.left == null ? (T)current.value : findSmallestValue(current.left);
     }
 
     public void clear() {

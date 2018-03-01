@@ -1,12 +1,16 @@
 package by.epam.preTraining.task7.model;
 
-public class Node {
+public class Node<T extends Comparable> implements Comparable<T>{
     Node left;
     Node right;
-    int value;
+    T value;
 
-    Node(int value) {
+    Node(T value) {
         this.value = value;
     }
 
+    @Override
+    public int compareTo(T o) {
+        return value.compareTo(o);
+    }
 }
