@@ -3,9 +3,6 @@ package by.epam.preTraining.task6.model.datastructure;
 import by.epam.preTraining.task6.model.datastructure.exception.*;
 import by.epam.preTraining.task6.model.datastructure.list.List;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 public class QueueList<T> extends ListDataType<T> implements Queue<T> {
 
     public QueueList() {

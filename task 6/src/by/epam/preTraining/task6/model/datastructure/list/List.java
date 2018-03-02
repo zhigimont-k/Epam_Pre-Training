@@ -173,7 +173,7 @@ public class List<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        Iterator<T> it = new Iterator<T>() {
+        Iterator<T> it = new Iterator<>() {
             private ListElement current = first;
 
             @Override
@@ -201,7 +201,6 @@ public class List<T> implements Iterable<T> {
 
     public java.util.List<T> toArray() {
         java.util.List<T> result = new ArrayList<>();
-        StringBuilder s = new StringBuilder();
         for (T elem : this) {
             result.add(elem);
         }
