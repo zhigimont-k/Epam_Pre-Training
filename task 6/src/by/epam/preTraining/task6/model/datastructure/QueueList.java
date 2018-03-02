@@ -13,11 +13,11 @@ public class QueueList<T> extends ListDataType<T> implements Queue<T> {
     }
 
     @Override
-    public T dequeue() throws EmptyCollectionException {
+    public T dequeue() throws EmptyCollectionException, DataStructureIndexOutOfBoundsException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't remove element from empty collection");
         }
-        T popped = list.getFirstValue();
+        T popped = list.get(0);
         list.removeFirst();
         size--;
         return popped;
@@ -29,11 +29,11 @@ public class QueueList<T> extends ListDataType<T> implements Queue<T> {
     }
 
     @Override
-    public T peek() throws EmptyCollectionException {
+    public T peek() throws EmptyCollectionException, DataStructureIndexOutOfBoundsException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't get elements from empty collection");
         }
-        return list.getFirstValue();
+        return list.get(0);
     }
 
 }

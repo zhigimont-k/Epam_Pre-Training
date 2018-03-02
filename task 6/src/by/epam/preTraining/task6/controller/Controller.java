@@ -2,6 +2,7 @@ package by.epam.preTraining.task6.controller;
 
 import by.epam.preTraining.task6.model.datastructure.*;
 import by.epam.preTraining.task6.model.datastructure.exception.*;
+import by.epam.preTraining.task6.model.datastructure.exception.IllegalArgumentException;
 import by.epam.preTraining.task6.view.View;
 
 import java.util.Random;
@@ -51,7 +52,7 @@ public class Controller {
         try {
             stackArrayFixed.setCapacity(10);
             stackListFixed.setCapacity(10);
-        } catch (CastDynamicToFixedCollectionException | ChangeFixedCapacityException | NegativeCapacityException e) {
+        } catch (CastDynamicToFixedCollectionException | ChangeFixedCapacityException | IllegalArgumentException e) {
             View.print(e.getMessage());
         }
         View.print("----------FIXED-SIZE ARRAY STACK:");
@@ -88,7 +89,7 @@ public class Controller {
         try {
             queueArrayFixed.setCapacity(10);
             queueListFixed.setCapacity(10);
-        } catch (CastDynamicToFixedCollectionException | ChangeFixedCapacityException | NegativeCapacityException e) {
+        } catch (CastDynamicToFixedCollectionException | ChangeFixedCapacityException | IllegalArgumentException e) {
             View.print(e.getMessage());
         }
         View.print("----------FIXED-SIZE ARRAY QUEUE:");

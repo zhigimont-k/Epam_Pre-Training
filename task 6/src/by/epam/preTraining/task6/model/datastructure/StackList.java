@@ -19,11 +19,11 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
     }
 
     @Override
-    public T pop() throws EmptyCollectionException {
+    public T pop() throws EmptyCollectionException, DataStructureIndexOutOfBoundsException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't remove element from empty collection");
         }
-        T popped = list.getLastValue();
+        T popped = list.get(size - 1);
         list.removeLast();
         size--;
         return popped;
@@ -31,11 +31,11 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
 
 
     @Override
-    public T peek() throws EmptyCollectionException {
+    public T peek() throws EmptyCollectionException, DataStructureIndexOutOfBoundsException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't get elements from empty collection");
         }
-        return list.getLastValue();
+        return list.get(size - 1);
     }
 
 }

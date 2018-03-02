@@ -1,5 +1,6 @@
 package by.epam.preTraining.task6.model.datastructure.list;
 
+import by.epam.preTraining.task6.model.datastructure.exception.DataStructureIndexOutOfBoundsException;
 import by.epam.preTraining.task6.model.datastructure.exception.EmptyCollectionException;
 
 import java.util.ArrayList;
@@ -41,12 +42,50 @@ public class List<T> implements Iterable<T> {
                 first = elem;
                 last = elem;
             } else {
-                elem.next = last;
-                last = elem;
+                elem.next = first;
+                first = elem;
             }
             size++;
         }
 
+    }
+
+    public T get(int index) throws DataStructureIndexOutOfBoundsException, IllegalArgumentException{
+        if (index >= size){
+            throw new DataStructureIndexOutOfBoundsException("Index is out of bounds");
+        }
+        if (index < 0){
+            throw new IllegalArgumentException("Index can't be negative");
+        }
+        ListElement current = first;
+        while(index > 0){
+            index--;
+            current = current.next;
+        }
+        return (T)current.value;
+    }
+
+    public void set(int index, T value) throws DataStructureIndexOutOfBoundsException, IllegalArgumentException{
+        if (index >= size){
+            throw new DataStructureIndexOutOfBoundsException("Index is out of bounds");
+        }
+        if (index < 0){
+            throw new IllegalArgumentException("Index can't be negative");
+        }
+        ListElement current = first;
+        while(index > 0){
+            index--;
+            current = current.next;
+        }
+        current.value = value;
+    }
+
+    public ListElement getFirst() {
+        return first;
+    }
+
+    public ListElement getLast() {
+        return last;
     }
 
     public boolean isEmpty() {
@@ -116,14 +155,6 @@ public class List<T> implements Iterable<T> {
         }
     }
 
-    public ListElement getFirst() {
-        return first;
-    }
-
-    public ListElement getLast() {
-        return last;
-    }
-
     public boolean contains(T value) throws EmptyCollectionException {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't search elements in empty list");
@@ -138,14 +169,6 @@ public class List<T> implements Iterable<T> {
             current = previous.next;
         }
         return false;
-    }
-
-    public T getFirstValue() {
-        return (T) first.value;
-    }
-
-    public T getLastValue() {
-        return (T) last.value;
     }
 
     @Override

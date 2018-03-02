@@ -5,5 +5,5 @@ import by.epam.preTraining.task6.model.datastructure.exception.EmptyCollectionEx
 
 public interface Stack<T>{
     void push(T e) throws DataStructureIndexOutOfBoundsException, EmptyCollectionException;
-    T pop() throws EmptyCollectionException;
+    T pop() throws EmptyCollectionException, DataStructureIndexOutOfBoundsException;
 }
