@@ -28,34 +28,8 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void enqueue(T elem) throws DataStructureIndexOutOfBoundsException {
-        if (fixedSize) {
-            if (isFull()) {
-                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
-            }
-
-            T newArr[] = (T[]) (new Object[capacity]);
-            if (size != 0 && arr[0] == null) {
-                for (int i = 0; i < arr.length - 1; i++) {
-                    newArr[i] = arr[i + 1];
-                }
-                newArr[newArr.length - 1] = elem;
-            } else {
-                for (int i = 0; i < arr.length; i++) {
-                    newArr[i] = arr[i];
-                }
-                newArr[newArr.length - 1] = elem;
-            }
-            arr = newArr.clone();
-        } else {
-            T newArr[] = (T[]) (new Object[arr.length + 1]);
-            for (int i = 0; i < newArr.length - 1; i++) {
-                newArr[i] = arr[i];
-            }
-            newArr[newArr.length - 1] = elem;
-            arr = newArr.clone();
-        }
-        size++;
+    public void enqueue(T e) throws DataStructureIndexOutOfBoundsException {
+        push(e);
     }
 
     public T peek() throws EmptyCollectionException {
@@ -64,5 +38,4 @@ public class QueueArray<T> extends ArrayDataType<T> implements Queue<T> {
         }
         return arr[0];
     }
-
 }

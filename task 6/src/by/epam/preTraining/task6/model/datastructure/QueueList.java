@@ -1,6 +1,7 @@
 package by.epam.preTraining.task6.model.datastructure;
 
 import by.epam.preTraining.task6.model.datastructure.exception.*;
+import by.epam.preTraining.task6.model.datastructure.list.List;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,7 +9,7 @@ import java.util.LinkedList;
 public class QueueList<T> extends ListDataType<T> implements Queue<T> {
 
     public QueueList() {
-        list = new LinkedList<>();
+        list = new List<>();
     }
 
     @Override
@@ -16,24 +17,15 @@ public class QueueList<T> extends ListDataType<T> implements Queue<T> {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't remove element from empty collection");
         }
-        T popped = list.get(0);
-        list.remove(0);
+        T popped = list.getFirstValue();
+        list.removeFirst();
         size--;
         return popped;
     }
 
     @Override
-    public void enqueue(T e) throws DataStructureIndexOutOfBoundsException {
-        if (fixedSize) {
-            if (isFull()) {
-                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
-            }
-            if (size != 0 && list.get(0) == null) {
-                list.remove(0);
-            }
-        }
-        list.add(e);
-        size++;
+    public void enqueue(T e) throws DataStructureIndexOutOfBoundsException, EmptyCollectionException {
+        push(e);
     }
 
     @Override
@@ -41,7 +33,7 @@ public class QueueList<T> extends ListDataType<T> implements Queue<T> {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't get elements from empty collection");
         }
-        return list.get(0);
+        return list.getFirstValue();
     }
 
 }

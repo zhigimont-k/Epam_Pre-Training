@@ -1,6 +1,7 @@
 package by.epam.preTraining.task6.model.datastructure;
 
 import by.epam.preTraining.task6.model.datastructure.exception.*;
+import by.epam.preTraining.task6.model.datastructure.list.List;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -8,21 +9,13 @@ import java.util.LinkedList;
 public class StackList<T> extends ListDataType<T> implements Stack<T> {
 
     public StackList() {
-        list = new LinkedList<>();
+        list = new List<>();
     }
 
+
     @Override
-    public void push(T e) throws DataStructureIndexOutOfBoundsException {
-        if (fixedSize) {
-            if (size >= capacity) {
-                throw new DataStructureIndexOutOfBoundsException("Can't add element to already full fixed size collection");
-            }
-            if (size != 0 && list.get(0) == null) {
-                list.remove(0);
-            }
-        }
-        list.add(e);
-        size++;
+    public void push(T e) throws DataStructureIndexOutOfBoundsException, EmptyCollectionException {
+        super.push(e);
     }
 
     @Override
@@ -30,8 +23,8 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't remove element from empty collection");
         }
-        T popped = list.get(size - 1);
-        list.remove(size - 1);
+        T popped = list.getLastValue();
+        list.removeLast();
         size--;
         return popped;
     }
@@ -42,7 +35,7 @@ public class StackList<T> extends ListDataType<T> implements Stack<T> {
         if (isEmpty()) {
             throw new EmptyCollectionException("Can't get elements from empty collection");
         }
-        return list.get(size - 1);
+        return list.getLastValue();
     }
 
 }
