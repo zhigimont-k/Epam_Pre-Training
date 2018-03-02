@@ -6,15 +6,67 @@ import by.epam.preTraining.task5.view.View;
 
 public class Controller {
     public static void main(String[] args) {
-        TrainStation station = TrainStationGenerator.createRandomStation();
-        View.print("Number of trains currently on the station: " + station.countTrains());
-        View.print("The shortest train is " + station.findShortestTrain());
-        View.print("The longest train is: " + station.findLongestTrain());
-        View.print("The heaviest train is: " + station.findHeaviestTrain());
-        View.print("The lightest train is: " + station.findLightestTrain());
+        TrainStation station = new TrainStationFactory().createStation();
+        View.print("Number of trains currently on the station: " + countTrains(station));
+        View.print("The shortest train is " + findShortestTrain(station));
+        View.print("The longest train is: " + findLongestTrain(station));
+        View.print("The heaviest train is: " + findHeaviestTrain(station));
+        View.print("The lightest train is: " + findLightestTrain(station));
 
-        arrayTest();
+        //arrayTest();
 
+    }
+
+    public static int countTrains(TrainStation ts) {
+        return ts.getTrains().length;
+    }
+
+    public static Train findLongestTrain(TrainStation ts) {
+        DynamicArray<Train> trains = ts.getTrains();
+        Train tr = trains.getAt(0);
+        for (Train t : trains) {
+            int maxLength = tr.calculateLength();
+            if (maxLength < t.calculateLength()) {
+                tr = t;
+            }
+        }
+        return tr;
+    }
+
+    public static Train findShortestTrain(TrainStation ts) {
+        DynamicArray<Train> trains = ts.getTrains();
+        Train tr = trains.getAt(0);
+        for (Train t : trains) {
+            int minLength = tr.calculateLength();
+            if (minLength > t.calculateLength()) {
+                tr = t;
+            }
+        }
+        return tr;
+    }
+
+    public static Train findLightestTrain(TrainStation ts) {
+        DynamicArray<Train> trains = ts.getTrains();
+        Train tr = trains.getAt(0);
+        for (Train t : trains) {
+            int minWeight = tr.calculateWeight();
+            if (minWeight > t.calculateWeight()) {
+                tr = t;
+            }
+        }
+        return tr;
+    }
+
+    public static Train findHeaviestTrain(TrainStation ts) {
+        DynamicArray<Train> trains = ts.getTrains();
+        Train tr = trains.getAt(0);
+        for (Train t : trains) {
+            int maxWeight = tr.calculateWeight();
+            if (maxWeight < t.calculateWeight()) {
+                tr = t;
+            }
+        }
+        return tr;
     }
     
     private static void arrayTest() {

@@ -6,16 +6,16 @@ import by.epam.preTraining.task5.model.container.DynamicArray;
 public class TrainStation {
     private DynamicArray<Train> trains;
 
+    public DynamicArray<Train> getTrains() {
+        return trains;
+    }
+
     public TrainStation() {
         trains = new DynamicArray<>();
     }
 
     public TrainStation(Train... tr) {
         trains = new DynamicArray<>(tr);
-    }
-
-    public int countTrains() {
-        return trains.length;
     }
 
     public void addTrain(Train... tr) {
@@ -30,50 +30,6 @@ public class TrainStation {
 
     public void removeTrain(int index){
         trains.removeAt(index);
-    }
-
-    public Train findLongestTrain() {
-        Train tr = trains.getAt(0);
-        for (int i = 0; i < trains.length; i++) {
-            int maxLen = tr.calculateLength();
-            if (maxLen < trains.getAt(i).calculateLength()) {
-                tr = trains.getAt(i);
-            }
-        }
-        return tr;
-    }
-
-    public Train findShortestTrain() {
-        Train tr = trains.getAt(0);
-        for (int i = 0; i < trains.length; i++) {
-            int minLen = tr.calculateLength();
-            if (minLen > trains.getAt(i).calculateLength()) {
-                tr = trains.getAt(i);
-            }
-        }
-        return tr;
-    }
-
-    public Train findLightestTrain() {
-        Train tr = trains.getAt(0);
-        for (int i = 0; i < trains.length; i++) {
-            int minWeight = tr.calculateWeight();
-            if (minWeight > trains.getAt(i).calculateWeight()) {
-                tr = trains.getAt(i);
-            }
-        }
-        return tr;
-    }
-
-    public Train findHeaviestTrain() {
-        Train tr = trains.getAt(0);
-        for (int i = 0; i < trains.length; i++) {
-            int maxWeight = tr.calculateWeight();
-            if (maxWeight < trains.getAt(i).calculateWeight()) {
-                tr = trains.getAt(i);
-            }
-        }
-        return tr;
     }
 
     public int calculateTotalCargoWeight(){
