@@ -7,7 +7,6 @@ import by.epam.preTraining.task6.model.datastructure.exception.EmptyCollectionEx
 public class Palindrome {
     public static boolean checkPalindrome(String s) throws DataStructureIndexOutOfBoundsException, EmptyCollectionException {
         StackArray stack = new StackArray<>();
-        s = s.toLowerCase();
         for (int i = 0; i < s.length(); i++) {
             stack.push(s.charAt(i));
         }
@@ -16,6 +15,6 @@ public class Palindrome {
         while (!stack.isEmpty()) {
             reversed.append(stack.pop());
         }
-        return s.equals(reversed.toString());
+        return s.equalsIgnoreCase(reversed.toString());
     }
 }

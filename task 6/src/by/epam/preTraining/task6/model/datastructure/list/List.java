@@ -232,8 +232,7 @@ public class List<T> implements Iterable<T> {
     @Override
     public int hashCode() {
         int hash = 1;
-        java.util.List<T> arr = toArray();
-        for (T elem : arr) {
+        for (T elem : this) {
             hash += hash * 31 + elem.hashCode();
         }
         return hash;
