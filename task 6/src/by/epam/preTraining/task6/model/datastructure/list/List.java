@@ -50,30 +50,30 @@ public class List<T> implements Iterable<T> {
 
     }
 
-    public T get(int index) throws DataStructureIndexOutOfBoundsException, IllegalArgumentException{
-        if (index >= size){
+    public T get(int index) throws DataStructureIndexOutOfBoundsException, IllegalArgumentException {
+        if (index >= size) {
             throw new DataStructureIndexOutOfBoundsException("Index is out of bounds");
         }
-        if (index < 0){
+        if (index < 0) {
             throw new IllegalArgumentException("Index can't be negative");
         }
         ListElement current = first;
-        while(index > 0){
+        while (index > 0) {
             index--;
             current = current.next;
         }
-        return (T)current.value;
+        return (T) current.value;
     }
 
-    public void set(int index, T value) throws DataStructureIndexOutOfBoundsException, IllegalArgumentException{
-        if (index >= size){
+    public void set(int index, T value) throws DataStructureIndexOutOfBoundsException, IllegalArgumentException {
+        if (index >= size) {
             throw new DataStructureIndexOutOfBoundsException("Index is out of bounds");
         }
-        if (index < 0){
+        if (index < 0) {
             throw new IllegalArgumentException("Index can't be negative");
         }
         ListElement current = first;
-        while(index > 0){
+        while (index > 0) {
             index--;
             current = current.next;
         }
@@ -199,14 +199,6 @@ public class List<T> implements Iterable<T> {
         return it;
     }
 
-    public java.util.List<T> toArray() {
-        java.util.List<T> result = new ArrayList<>();
-        for (T elem : this) {
-            result.add(elem);
-        }
-        return result;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -215,15 +207,19 @@ public class List<T> implements Iterable<T> {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        java.util.List<T> arr = toArray();
-        java.util.List<T> other = ((List<T>) obj).toArray();
+        List<T> other = (List<T>) obj;
         if (size != other.size()) {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            if (arr.get(i) != other.get(i)) {
-                return false;
+            try {
+                if (this.get(i) != other.get(i)) {
+                    return false;
+                }
+            } catch (DataStructureIndexOutOfBoundsException e){
+                e.printStackTrace();
             }
+
         }
         return true;
     }
