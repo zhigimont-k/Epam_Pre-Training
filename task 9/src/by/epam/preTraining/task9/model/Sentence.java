@@ -37,9 +37,10 @@ public class Sentence {
         StringBuilder s = new StringBuilder();
         int length = parts.size();
         for (int i = 0; i < length; i++) {
-            s.append((i == length - 1 || parts.get(i + 1) instanceof Word) ?
-                    (parts.get(i).build() + " ") :
-                    (parts.get(i).build()));
+            s.append(parts.get(i).build());
+            if ((i == length - 1 || parts.get(i + 1) instanceof Word)){
+                s.append(" ");
+            }
         }
         return s.toString();
     }
