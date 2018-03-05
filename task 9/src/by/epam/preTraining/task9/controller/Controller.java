@@ -2,7 +2,8 @@ package by.epam.preTraining.task9.controller;
 
 import by.epam.preTraining.task9.model.SourceText;
 import by.epam.preTraining.task9.model.Text;
-import by.epam.preTraining.task9.controller.parser.TextParser;
+import by.epam.preTraining.task9.model.parser.TextParser;
+import by.epam.preTraining.task9.model.task.Task;
 import by.epam.preTraining.task9.view.View;
 
 import java.io.IOException;
@@ -12,27 +13,30 @@ public class Controller {
     private static final String WORKING_DIRECTORY = System.getProperty("user.dir");
 
     public static void main(String[] args) {
-        Controller c = new Controller();
-    }
-
-    Controller() {
         run();
     }
 
-    private void run() {
+    private static void run() {
         SourceText source = SourceText.getInstance();
         try {
             source.loadText(WORKING_DIRECTORY + "\\" + PATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        View.print("Original text:\n" + source.getSourceText());
+        View.print("----------Original text:\n" + source.getSourceText());
         Text text = parseText(source);
-        View.print("\nParsed and rebuilt text:\n" + text.buildText());
+        View.print("\n----------Parsed and rebuilt text:\n" + text.buildText());
+        Text swapText = parseText(source);
+        View.print("----------Text after swapping the first and the last words in sentences:\n" +
+                Task.swapWords(swapText).buildText());
+        Text removedWordsText = parseText(source);
+        int wordLength = 5;
+        View.print("----------Text after removing words of length " + wordLength + " that begin with a consonant:\n" +
+                Task.removeWords(removedWordsText, wordLength).buildText());
 
     }
 
-    private Text parseText(SourceText source) {
+    private static Text parseText(SourceText source) {
         TextParser parser = new TextParser();
         parser.setSource(source);
         parser.parse();

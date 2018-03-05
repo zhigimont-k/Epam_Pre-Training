@@ -1,4 +1,4 @@
-package by.epam.preTraining.task9.controller.parser;
+package by.epam.preTraining.task9.model.parser;
 
 import by.epam.preTraining.task9.model.PunctuationMark;
 import by.epam.preTraining.task9.model.Sentence;

@@ -43,4 +43,8 @@ public class Sentence {
         }
         return s.toString();
     }
+
+    public List<SentencePart> getParts() {
+        return parts;
+    }
 }

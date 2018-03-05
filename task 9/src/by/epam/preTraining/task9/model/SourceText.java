@@ -69,4 +69,8 @@ public class SourceText {
     public String toString() {
         return path;
     }
+
+    public StringBuilder getSource() {
+        return source;
+    }
 }

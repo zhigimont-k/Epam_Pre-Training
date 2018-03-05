@@ -33,4 +33,8 @@ public class Word extends SentencePart {
     public String toString() {
         return string;
     }
+
+    public List<Letter> getLetters() {
+        return letters;
+    }
 }

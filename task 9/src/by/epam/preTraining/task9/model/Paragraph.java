@@ -31,4 +31,8 @@ public class Paragraph {
         }
         return s.toString();
     }
+
+    public List<Sentence> getSentences() {
+        return sentences;
+    }
 }
