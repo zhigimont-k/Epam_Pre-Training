@@ -25,14 +25,14 @@ public class Controller {
         }
         View.print("----------Original text:\n" + source.getSourceText());
         Text text = parseText(source);
-        View.print("\n----------Parsed and rebuilt text:\n" + text.buildText());
+        View.print("\n----------Parsed and rebuilt text:\n" + text.build());
         Text swapText = parseText(source);
         View.print("----------Text after swapping the first and the last words in sentences:\n" +
-                Task.swapWords(swapText).buildText());
+                Task.swapWords(swapText).build());
         Text removedWordsText = parseText(source);
         int wordLength = 5;
         View.print("----------Text after removing words of length " + wordLength + " that begin with a consonant:\n" +
-                Task.removeWords(removedWordsText, wordLength).buildText());
+                Task.removeWords(removedWordsText, wordLength).build());
 
     }
 

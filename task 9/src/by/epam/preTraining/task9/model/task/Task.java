@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Task {
-    private static final String VOWELS = "aeiouy";
+    private static final String CONSONANTS = "bcdfghjklmnpqrtsvwxz";
     //task 5
     public static Text swapWords(Text text) {
         for (Paragraph p : text.getParagraphs()) {
@@ -51,6 +51,6 @@ public class Task {
     }
 
     private static boolean isConsonant(Letter l){
-        return !VOWELS.contains(l.getLetter().toLowerCase());
+        return CONSONANTS.contains(l.getLetter().toLowerCase());
     }
 }

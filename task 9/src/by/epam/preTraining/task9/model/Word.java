@@ -5,14 +5,13 @@ import java.util.List;
 
 public class Word extends SentencePart {
     List<Letter> letters;
-    String string;
 
     public Word() {
         letters = new ArrayList<>();
     }
 
-    public Word(String s) {
-        string = s;
+    public Word(String string) {
+        this.string = string;
         letters = new ArrayList<>();
     }
 
@@ -27,11 +26,6 @@ public class Word extends SentencePart {
             s.append(l);
         }
         return s.toString();
-    }
-
-    @Override
-    public String toString() {
-        return string;
     }
 
     public List<Letter> getLetters() {

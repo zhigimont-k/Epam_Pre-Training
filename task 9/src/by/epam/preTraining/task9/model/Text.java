@@ -3,13 +3,12 @@ package by.epam.preTraining.task9.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Text {
+public class Text extends TextEntity {
     private List<Paragraph> paragraphs;
-    private StringBuilder string;
 
-    public Text(String s) {
+    public Text(String string) {
         paragraphs = new ArrayList<>();
-        string = new StringBuilder(s);
+        this.string = string;
     }
 
     public void addParagraph(Paragraph p) {
@@ -17,19 +16,36 @@ public class Text {
     }
 
     @Override
-    public String toString() {
-        return string.toString();
-    }
-
-    public String buildText() {
+    public String build() {
         StringBuilder s = new StringBuilder();
         for (Paragraph p : paragraphs) {
-            s.append(p.buildParagraph() + "\n");
+            s.append(p.build() + "\n");
         }
         return s.toString();
     }
 
     public List<Paragraph> getParagraphs() {
         return paragraphs;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Text other = (Text) obj;
+        return this.paragraphs.equals(other.paragraphs);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 1;
+        for (Paragraph p : paragraphs) {
+            hash += hash * 31 + p.hashCode();
+        }
+        return hash;
     }
 }
