@@ -12,7 +12,7 @@ public class Controller {
     private static final String PATH = "test.txt";
     private static final String WORKING_DIRECTORY = System.getProperty("user.dir");
 
-    public static void main(String[] args) {
+    public static void main(String[] argsz) {
         run();
     }
 

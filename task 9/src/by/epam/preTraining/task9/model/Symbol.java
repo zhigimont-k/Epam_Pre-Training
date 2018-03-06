@@ -1,6 +1,6 @@
 package by.epam.preTraining.task9.model;
 
-public class Symbol extends TextEntity {
+public class Symbol extends SentencePart {
     @Override
     public String build() {
         return string;
